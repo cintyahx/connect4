@@ -1,7 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { Score } from '../types/score.interface';
 import { GameService } from 'src/services/gameService';
-import { tap } from 'rxjs';
 
 @Component({
   selector: 'app-board',
@@ -9,7 +7,6 @@ import { tap } from 'rxjs';
   styleUrls: ['./board.component.scss']
 })
 export class BoardComponent {
-@Output() scoreOutput = new EventEmitter<Score>();
 @Output() winnerOutput = new EventEmitter<string>();
   board = 
   [
@@ -74,10 +71,6 @@ export class BoardComponent {
   turn = "red";
   firstTurn = "red";
   winner = "";
-  timer = 60;
-  interval:any;
-  scoreRed = 0;
-  scoreYellow = 0;
   roundOver = false;
 
   
@@ -87,6 +80,23 @@ export class BoardComponent {
 
   setDot(columnIndex:number){
     this.gameService.dropDisc(columnIndex);
+
+    if(!this.board[columnIndex][this.board[columnIndex].length-1].clicked){
+      this.board[columnIndex][this.board[columnIndex].length-1].clicked = true;
+      this.board[columnIndex][this.board[columnIndex].length-1].color = this.turn
+      this.calculateWin();
+      this.turn = this.turn === "red" ? "green" : "red";
+      return
+    }
+    for(let i = 0; i < this.board[columnIndex].length; i++){
+      if (this.board[columnIndex][i].clicked === true){
+        this.board[columnIndex][i-1].clicked = true;
+        this.board[columnIndex][i-1].color = this.turn;
+        this.calculateWin();
+        this.turn = this.turn === "red" ? "green" : "red";
+        return
+      }
+    }
   }
 
   restart(){
@@ -97,44 +107,24 @@ export class BoardComponent {
         dot.marked = false;
       })
     })
-    this.firstTurn = this.firstTurn === 'red' ? 'yellow' : 'red';
+    this.firstTurn = this.firstTurn === 'red' ? 'green' : 'red';
     this.turn = this.firstTurn;
     this.setWinner("");
-    clearInterval(this.interval);
-    this.interval = setInterval(() => {
-      if (this.timer <= 0) {
-        this.turn = this.turn === "red" ? "yellow" : "red";
-        this.timer = 60
-      }
-      this.timer--; 
-      }, 1000);
-    this.timer = 60;
     this.roundOver = false;
   }
 
-  changeScore(redScore:number,yellowScore:number){
-    this.scoreOutput.emit({red:redScore,yellow:yellowScore})
-  }
   setWinner(winner:string){
     this.winnerOutput.emit(winner)
   }
 
   ngOnInit(){
-    this.gameService.createGame()
-    .pipe(
-      tap((result) => {
-        this.timer = 0;
-      })
-    )
-    .subscribe();
+    this.gameService.createGame().subscribe();
   }
-  
+
   ngOnDestroy(){
-    clearInterval(this.interval)
   }
 
   calculateWin(){
-    this.gameService.getWinner();
     //calculate column wins
     this.board.forEach(column => {
       for(let i=0;i<3;i++){
@@ -143,16 +133,9 @@ export class BoardComponent {
           column[i+2].color === this.turn &&
           column[i+3].color === this.turn
           ) {
-           if (this.turn === "red") {
-             this.scoreRed++
-           } else {
-             this.scoreYellow++
-           }
            this.roundOver = true;
            this.winner = this.turn;
            this.setWinner(this.turn);
-           clearInterval(this.interval);
-           this.changeScore(this.scoreRed,this.scoreYellow);
            column[i].marked = true;
            column[i+1].marked = true;
            column[i+2].marked = true;
@@ -169,16 +152,9 @@ export class BoardComponent {
           this.board[i+2][j].color === this.turn &&
           this.board[i+3][j].color === this.turn
           ) {
-            if (this.turn === "red") {
-              this.scoreRed++
-            } else {
-              this.scoreYellow++
-            }
             this.roundOver = true;
             this.winner = this.turn;
             this.setWinner(this.turn);
-            clearInterval(this.interval);
-            this.changeScore(this.scoreRed,this.scoreYellow);
             this.board[i][j].marked = true;
             this.board[i+1][j].marked = true;
             this.board[i+2][j].marked = true;
@@ -197,16 +173,9 @@ export class BoardComponent {
           this.board[row + 2][col + 2].color === this.turn &&
           this.board[row + 3][col + 3].color === this.turn
         ) {
-          if (this.turn === "red") {
-          this.scoreRed++
-          } else {
-          this.scoreYellow++
-          }
         this.roundOver = true;
         this.winner = this.turn;
         this.setWinner(this.turn);
-        clearInterval(this.interval);
-        this.changeScore(this.scoreRed,this.scoreYellow);
         this.board[row][col].marked = true;
         this.board[row + 1][col + 1].marked = true;
         this.board[row + 2][col + 2].marked = true;
@@ -226,16 +195,9 @@ export class BoardComponent {
           this.board[row + 2][col - 2].color === this.turn &&
           this.board[row + 3][col - 3].color === this.turn 
         ) {
-          if (this.turn === "red") {
-          this.scoreRed++
-          } else {
-          this.scoreYellow++
-          }
         this.roundOver = true;
         this.winner = this.turn;
         this.setWinner(this.turn);
-        clearInterval(this.interval);
-        this.changeScore(this.scoreRed,this.scoreYellow);
         this.board[row][col].marked = true;
         this.board[row + 1][col - 1].marked = true;
         this.board[row + 2][col - 2].marked = true;

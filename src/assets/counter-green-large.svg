@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="70px" height="75px" viewBox="0 0 70 75" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <title>counter-yellow-large</title>
+    <title>counter-green-large</title>
     <defs>
         <circle id="path-1" cx="35" cy="35" r="32"></circle>
         <filter x="-3.9%" y="-3.9%" width="107.8%" height="107.8%" filterUnits="objectBoundingBox" id="filter-2">
@@ -10,7 +10,7 @@
         </filter>
     </defs>
     <g id="Designs" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="counter-yellow-large">
+        <g id="counter-green-large">
             <circle id="Oval-Copy-35" fill="#000000" cx="35" cy="35" r="35"></circle>
             <circle id="Oval-Copy-36" fill="#000000" cx="35" cy="40" r="35"></circle>
             <g id="Oval-Copy-35">

@@ -1,9 +1,9 @@
 :host{
-    width: 480px;
+    width: 30rem;
     background-color: var(--white);
-    border: 3px solid var(--black);
-    box-shadow: 0px 10px 0px var(--black);
-    border-radius: 40px;
+    border: 0.18rem solid var(--black);
+    box-shadow: 0rem 0.625rem 0rem var(--black);
+    border-radius: 2.5rem;
     padding: 0 2rem 3rem 2rem;
     position: relative;
 }
@@ -38,11 +38,11 @@ button{
     right: 50%;
     transform: translate(50%, 50%);
     &:hover #Oval-Copy-37, :hover #Oval-Copy-38{
-        fill: var(--picton-blue);
+        fill: var(--delft-blue);
     }
 }
 
-@media screen and (max-width: 575px){
+@media screen and (max-width: 36rem){
     :host{
         width: 90%;
         padding: 0 1.5rem 3rem 1.5rem;

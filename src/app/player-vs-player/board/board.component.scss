@@ -44,33 +44,33 @@
 }
 .dot{
     z-index: 5;
-    height: 75px;
-    width: 70px;
+    height: 4.69rem;
+    width: 4.375rem;
     position: relative;
 }
 
 @keyframes dotAnimation-5 {
-    0% {top: -550px;}
+    0% {top: -34.375rem;}
     100% {top: 0}
 }
 @keyframes dotAnimation-4 {
-    0% {top: -475px;}
+    0% {top: -29.69rem;}
     100% {top: 0}
 }
 @keyframes dotAnimation-3 {
-    0% {top: -375px;}
+    0% {top: -23.44rem;}
     100% {top: 0}
 }
 @keyframes dotAnimation-2 {
-    0% {top: -275px;}
+    0% {top: -17.19rem;}
     100% {top: 0}
 }
 @keyframes dotAnimation-1 {
-    0% {top: -200px;}
+    0% {top: -12.5rem;}
     100% {top: 0}
 }
 @keyframes dotAnimation-0 {
-    0% {top: -100px;}
+    0% {top: -6.25rem;}
     100% {top: 0}
 }
 .point-img-5{
@@ -107,22 +107,22 @@
     display: none;
 }
 .winner-dot{
-    height: 34px;
-    width: 34px;
-    border: 6px solid var(--white);
+    height: 2.125rem;
+    width: 2.125rem;
+    border: 0.375rem solid var(--white);
     border-radius: 50%;
     position: absolute;
     top: 0;
     left: 50%;
     transform: translate(-50%,50%);
 }
-.timer{
+.current-turn{
     margin-top: -1rem;
     position: relative;
     z-index: 15;
     display: flex;
     justify-content: center;
-    .timer-wrapper{
+    .current-turn-wrapper{
         position: absolute;
         z-index: 20;
         top: 50%;
@@ -149,11 +149,11 @@
 
 .winner-container{
     background-color: var(--white);
-    border: 3px solid var(--black);
-    box-shadow: 0px 10px 0px var(--black);
-    border-radius: 20px;
-    width:285px;
-    height: 160px;
+    border: 0.18rem solid var(--black);
+    box-shadow: 0rem 0.625rem 0rem var(--black);
+    border-radius: 1.25rem;
+    width: 17.82rem;
+    height: 10rem;
     position:absolute;
     bottom:0;
     left: 50%;
@@ -171,12 +171,12 @@
     }
 }
 
-@media screen and (max-width:768px){
+@media screen and (max-width:48rem){
     .marker{
         display: none;
     }
 }
-@media screen and (max-width:575px){
+@media screen and (max-width:36rem){
     .field-container{
         overflow: visible;
         gap: .4rem;
@@ -198,35 +198,35 @@
         display: block;
     }
     .dot{
-        height: 46px;
-        width: 40px;
+        height: 2.875rem;
+        width: 2.5rem;
     }
     .winner-dot{
-        width: 20px;
-        height: 20px;
+        width: 1.25rem;
+        height: 1.25rem;
     }
     @keyframes dotAnimation-5-mobile {
-        0% {top: -300px;}
+        0% {top: -18.75rem;}
         100% {top: 0}
     }
     @keyframes dotAnimation-4-mobile {
-        0% {top: -250px;}
+        0% {top: -15.625rem;}
         100% {top: 0}
     }
     @keyframes dotAnimation-3-mobile {
-        0% {top: -210px;}
+        0% {top: -13.125rem;}
         100% {top: 0}
     }
     @keyframes dotAnimation-2-mobile {
-        0% {top: -150px;}
+        0% {top: -13.125rem;}
         100% {top: 0}
     }
     @keyframes dotAnimation-1-mobile {
-        0% {top: -110px;}
+        0% {top: -6.875rem;}
         100% {top: 0}
     }
     @keyframes dotAnimation-0-mobile {
-        0% {top: -50px;}
+        0% {top: -3.125rem;}
         100% {top: 0}
     }
     .point-img-5{

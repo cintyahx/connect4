@@ -1,14 +1,14 @@
 <div class="field-container">
     <button (click)="setDot(i)" [disabled]="roundOver" *ngFor="let column of [0,1,2,3,4,5,6]; let i = index" class="column column{{i}}">
         <img *ngIf="this.turn === 'red'" class="marker marker-red" src="assets/marker-red.svg" alt="marker">
-        <img *ngIf="this.turn === 'yellow'" class="marker marker-yellow" src="assets/marker-yellow.svg" alt="marker">
+        <img *ngIf="this.turn === 'green'" class="marker marker-green" src="assets/marker-green.svg" alt="marker">
         <div *ngFor="let dot of [0,1,2,3,4,5]; let j = index" class="dot dot{{j}}">
             <!--Desktop dots-->
             <img *ngIf="board[i][j].clicked && board[i][j].color === 'red'" class="point-img point-img-{{j}}" src="assets/counter-red-large.svg" alt="red-dot">
-            <img *ngIf="board[i][j].clicked && board[i][j].color === 'yellow'" class="point-img point-img-{{j}}" src="assets/counter-yellow-large.svg" alt="yellow-dot">
+            <img *ngIf="board[i][j].clicked && board[i][j].color === 'green'" class="point-img point-img-{{j}}" src="assets/counter-green-large.svg" alt="green-dot">
             <!--Mobile dots-->
             <img *ngIf="board[i][j].clicked && board[i][j].color === 'red'" class="point-img-mobile point-img-{{j}}" src="assets/counter-red-small.svg" alt="red-dot">
-            <img *ngIf="board[i][j].clicked && board[i][j].color === 'yellow'" class="point-img-mobile point-img-{{j}}" src="assets/counter-yellow-small.svg" alt="yellow-dot">
+            <img *ngIf="board[i][j].clicked && board[i][j].color === 'green'" class="point-img-mobile point-img-{{j}}" src="assets/counter-green-small.svg" alt="green-dot">
 
             <div *ngIf="board[i][j].marked" class="winner-dot"></div>
         </div>
@@ -21,9 +21,9 @@
 <img class="layer-mobile black-layer" src="assets/board-layer-black-small.svg" alt="black-layer">
 <img class="layer-mobile white-layer" src="assets/board-layer-white-small.svg" alt="white-layer">
 
-<div [ngStyle]="roundOver ? {'opacity':'0'} : {'opacity':'1'}" class="timer">
-    <img [ngStyle]="this.turn === 'red' ? {'display':'block'} : {'display':'none'}" src="assets/turn-background-red.svg" alt="timer">
-    <img [ngStyle]="this.turn === 'yellow' ? {'display':'block'} : {'display':'none'}" src="assets/turn-background-yellow.svg" alt="timer">
+<div [ngStyle]="roundOver ? {'opacity':'0'} : {'opacity':'1'}" class="current-turn">
+    <img [ngStyle]="this.turn === 'red' ? {'display':'block'} : {'display':'none'}" src="assets/turn-background-red.svg" alt="current-turn">
+    <img [ngStyle]="this.turn === 'green' ? {'display':'block'} : {'display':'none'}" src="assets/turn-background-green.svg" alt="current-turn">
 </div>
 <div *ngIf="roundOver" class="winner-container">
     <h3 class="heading-xs">PLAYER {{this.winner === 'red' ? 1 : 2}}</h3>

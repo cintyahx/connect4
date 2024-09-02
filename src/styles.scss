@@ -6,7 +6,7 @@ body{
     margin: 0;
 }
 .main-menu-background{
-    background-color: var(--picton-blue);
+    background-color: var(--delft-blue);
 }
 .background-pvp-rules{
     background-color: var(--uranian-blue);
@@ -17,74 +17,76 @@ button{
 }
 
 input{
-    width: 400px;
-    height: 72px;
-    font-size: 24px;
-    line-height: 31px;
+    width: 20rem;
+    height: 4.5rem;
+    font-size: 1.5rem;
+    line-height: 2rem;
     font-weight: bold;
-    border: 3px solid var(--black);
-    box-shadow: 0px 10px 0px var(--black);
-    border-radius: 20px;
+    border: 0.18rem solid var(--black);
+    box-shadow: 0rem 0.625rem 0rem var(--black);
+    border-radius: 1.25rem;
     padding: 1rem;
     cursor: pointer;
     transition: border .3s, box-shadow .3s;
     &:hover{
-        border: 3px solid var(--picton-blue);
-        box-shadow: 0px 10px 0px var(--picton-blue);
+        border: 0.18rem solid var(--delft-blue);
+        box-shadow: 0rem 0.625rem 0rem var(--delft-blue);
     }
 }
 
 :root{
     //Colors
     --black: #000000;
-    --picton-blue: #45B1E8;
+    --delft-blue: #1F305E;
     --uranian-blue: #AFDBF5;
     --red: #FD6687;
     --lime-green: #32CD32;
+    --teal: #008080;
+    --moonstone: #3AA8C1;
     --white: #FFFFFF;
 }
 
 .heading-l{
-    font-size: 56px;
-    line-height: 71px;
+    font-size: 3.5rem;
+    line-height: 4.5rem;
     font-weight: bold;
 }
 .heading-m{
-    font-size: 24px;
-    line-height: 31px;
+    font-size: 1.5rem;
+    line-height: 2rem;
     font-weight: bold;
 }
 .heading-s{
-    font-size: 20px;
-    line-height: 26px;
+    font-size: 1.25rem;
+    line-height: 1.63rem;
     font-weight: bold;
 }
 .heading-xs{
-    font-size: 16px;
-    line-height: 21px;
+    font-size: 1rem;
+    line-height: 1.3rem;
     font-weight: bold;
 }
 .body-m{
-    font-size: 16px;
-    line-height: 21px;
+    font-size: 1rem;
+    line-height: 1.3rem;
     font-weight: 500;
 }
 
 .btn{
-    width: 400px;
-    height: 72px;
-    font-size: 24px;
-    line-height: 31px;
+    width: 25rem;
+    height: 4.5rem;
+    font-size: 1.5rem;
+    line-height: 2rem;
     font-weight: bold;
-    border: 3px solid var(--black);
-    box-shadow: 0px 10px 0px var(--black);
-    border-radius: 20px;
+    border: 0.18rem solid var(--black);
+    box-shadow: 0rem 0.625rem 0rem var(--black);
+    border-radius: 1.25rem;
     padding: 1rem;
     cursor: pointer;
     transition: border .3s, box-shadow .3s;
     &:hover{
-        border: 3px solid var(--picton-blue);
-        box-shadow: 0px 10px 0px var(--picton-blue);
+        border: 0.18rem solid var(--delft-blue);
+        box-shadow: 0rem 0.625rem 0rem var(--delft-blue);
     }
 }
 .btn-round{
@@ -95,9 +97,9 @@ input{
 }
 .btn-small{
     @extend .heading-xs;
-    background-color: var(--picton-blue);
+    background-color: var(--delft-blue);
     color: var(--white);
-    border-radius: 20px;
+    border-radius: 1.25rem;
     border: none;
     cursor: pointer;
     padding: .5rem 1rem;
@@ -106,7 +108,7 @@ input{
         background-color: var(--red);
     }
 }
-@media screen and (max-width: 575px){
+@media screen and (max-width: 36rem){
     .main-menu-background{
         background-color: var(--uranian-blue);
     }
