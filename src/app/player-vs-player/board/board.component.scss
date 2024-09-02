@@ -1,0 +1,256 @@
+:host{
+    position: relative;
+    display: block;
+
+}
+.layer{
+    position: absolute;
+    top:0;
+    left: 0;
+}
+.layer-mobile{
+    display: none;
+    position: absolute;
+    top:0;
+    left: 0;
+}
+.black-layer{
+    z-index: 0;
+    pointer-events: none;
+}
+.white-layer{
+    z-index: 10;
+    pointer-events: none;
+}
+.field-container{
+    display: flex;
+    flex-direction: row;
+    gap: 1.125rem;
+    padding: 1.1rem 1.05rem 1.5rem 1.1rem;
+    overflow: hidden;
+}
+.column{
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    gap: .825rem;
+    &:hover .marker{
+        opacity: 1;
+    }
+}
+.dot{
+    z-index: 5;
+    height: 75px;
+    width: 70px;
+    position: relative;
+}
+
+@keyframes dotAnimation-5 {
+    0% {top: -550px;}
+    100% {top: 0}
+}
+@keyframes dotAnimation-4 {
+    0% {top: -475px;}
+    100% {top: 0}
+}
+@keyframes dotAnimation-3 {
+    0% {top: -375px;}
+    100% {top: 0}
+}
+@keyframes dotAnimation-2 {
+    0% {top: -275px;}
+    100% {top: 0}
+}
+@keyframes dotAnimation-1 {
+    0% {top: -200px;}
+    100% {top: 0}
+}
+@keyframes dotAnimation-0 {
+    0% {top: -100px;}
+    100% {top: 0}
+}
+.point-img-5{
+    position: relative;
+    animation-name: dotAnimation-5;
+    animation-duration: .5s;
+}
+.point-img-4{
+    position: relative;
+    animation-name: dotAnimation-4;
+    animation-duration: .4s;
+}
+.point-img-3{
+    position: relative;
+    animation-name: dotAnimation-3;
+    animation-duration: .3s;
+}
+.point-img-2{
+    position: relative;
+    animation-name: dotAnimation-2;
+    animation-duration: .2s;
+}
+.point-img-1{
+    position: relative;
+    animation-name: dotAnimation-1;
+    animation-duration: .1s;
+}
+.point-img-0{
+    position: relative;
+    animation-name: dotAnimation-0;
+    animation-duration: .1s;
+}
+.point-img-mobile{
+    display: none;
+}
+.winner-dot{
+    height: 34px;
+    width: 34px;
+    border: 6px solid var(--white);
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%,50%);
+}
+.timer{
+    margin-top: -1rem;
+    position: relative;
+    z-index: 15;
+    display: flex;
+    justify-content: center;
+    .timer-wrapper{
+        position: absolute;
+        z-index: 20;
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    h3{
+        margin: 0;
+    }
+    h4{
+        margin: 0;
+    }
+}
+.marker{
+    position: absolute;
+    top: 0;
+    transform: translate(50%,-110%);
+    opacity: 0;
+    transition: opacity .15s;
+}
+
+.winner-container{
+    background-color: var(--white);
+    border: 3px solid var(--black);
+    box-shadow: 0px 10px 0px var(--black);
+    border-radius: 20px;
+    width:285px;
+    height: 160px;
+    position:absolute;
+    bottom:0;
+    left: 50%;
+    z-index: 15;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(-50%);
+    h3{
+        margin: 0;
+    }
+    h4{
+        margin: 0;
+    }
+}
+
+@media screen and (max-width:768px){
+    .marker{
+        display: none;
+    }
+}
+@media screen and (max-width:575px){
+    .field-container{
+        overflow: visible;
+        gap: .4rem;
+        padding: .4rem 1.05rem 1.5rem .5rem;
+    }
+    .column{
+        gap: .05rem;
+    }
+    .point-img{
+        display:none;
+    }
+    .point-img-mobile{
+        display: block;
+    }
+    .layer{
+        display: none;
+    }
+    .layer-mobile{
+        display: block;
+    }
+    .dot{
+        height: 46px;
+        width: 40px;
+    }
+    .winner-dot{
+        width: 20px;
+        height: 20px;
+    }
+    @keyframes dotAnimation-5-mobile {
+        0% {top: -300px;}
+        100% {top: 0}
+    }
+    @keyframes dotAnimation-4-mobile {
+        0% {top: -250px;}
+        100% {top: 0}
+    }
+    @keyframes dotAnimation-3-mobile {
+        0% {top: -210px;}
+        100% {top: 0}
+    }
+    @keyframes dotAnimation-2-mobile {
+        0% {top: -150px;}
+        100% {top: 0}
+    }
+    @keyframes dotAnimation-1-mobile {
+        0% {top: -110px;}
+        100% {top: 0}
+    }
+    @keyframes dotAnimation-0-mobile {
+        0% {top: -50px;}
+        100% {top: 0}
+    }
+    .point-img-5{
+        animation: dotAnimation-5-mobile;
+        animation-duration: .5s;
+    }
+    .point-img-4{
+        animation: dotAnimation-4-mobile;
+        animation-duration: .4s;
+    }
+    .point-img-3{
+        animation: dotAnimation-3-mobile;
+        animation-duration: .3s;
+    }
+    .point-img-2{
+        animation: dotAnimation-2-mobile;
+        animation-duration: .2s;
+    }
+    .point-img-1{
+        animation: dotAnimation-1-mobile;
+        animation-duration: .1s;
+    }
+    .point-img-0{
+        animation: dotAnimation-0-mobile;
+        animation-duration: .1s;
+    }
+}

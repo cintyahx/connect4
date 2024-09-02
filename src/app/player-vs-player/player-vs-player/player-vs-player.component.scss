@@ -1,0 +1,108 @@
+:host{
+    position: relative;
+    display: block;
+}
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+}
+.player1-container{
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translate(calc(-100% - 3rem), -30%);
+    img{
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+.player2-container{
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translate(calc(100% + 3rem), -30%);
+    img{
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+.scoreboard{
+    background: var(--white);
+    border: 3px solid var(--black);
+    box-shadow: 0px 10px 0px var(--black);
+    border-radius: 20px;
+    padding: 1rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    h2{
+        margin: 0;
+    }
+}
+footer{
+    width: 100%;
+    height: 14rem;
+    background-color: var(--picton-blue);
+    border-radius: 60px 60px 0px 0px;
+    position:fixed;
+    bottom:0;
+    left:0;
+    z-index: -5;
+}
+.dark-background{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,.5);
+    z-index: 15;
+}
+
+@media screen and (max-width: 768px){
+    header{
+        margin-bottom: 1rem;
+        button:first-child{
+            margin-right: 17px;
+        }
+    }
+    .points-container{
+        display: flex;
+        gap: 2rem;
+        margin: 0 2rem 2rem 2rem;
+
+    }
+    .player1-container{
+        img{
+            left: 0;
+            top: 50%;
+        }
+    }
+    .player2-container{
+        flex-direction: row-reverse;
+        img{
+            top: 50%;
+            right: 0;
+            left: unset;
+            transform: translate(50%,-50%);
+        }
+    }
+}
+@media screen and (max-width: 575px){
+    :host{
+        width: 90%;
+    }
+    .points-container{
+        gap: 1rem;
+        margin: 3rem .5rem 3rem .5rem;
+    }
+    .heading-s{
+        margin: 0;
+    }
+}

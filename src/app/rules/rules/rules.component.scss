@@ -1,0 +1,54 @@
+:host{
+    width: 480px;
+    background-color: var(--white);
+    border: 3px solid var(--black);
+    box-shadow: 0px 10px 0px var(--black);
+    border-radius: 40px;
+    padding: 0 2rem 3rem 2rem;
+    position: relative;
+}
+h1{
+    text-align: center;
+}
+h2{
+    color: var(--uranian-blue);
+}
+p{
+    opacity: 0.66;
+}
+.rule{
+    display: flex;
+    gap: 1rem;
+    margin-bottom: .5rem;
+    span{
+        &:first-child{
+            font-weight: bold;
+        }
+        &:last-child{
+            opacity: 0.66;
+        }
+    }
+}
+#Oval-Copy-37,#Oval-Copy-38{
+    transition: fill .3s;
+}
+button{
+    position: absolute;
+    bottom: 0;
+    right: 50%;
+    transform: translate(50%, 50%);
+    &:hover #Oval-Copy-37, :hover #Oval-Copy-38{
+        fill: var(--picton-blue);
+    }
+}
+
+@media screen and (max-width: 575px){
+    :host{
+        width: 90%;
+        padding: 0 1.5rem 3rem 1.5rem;
+    }
+    .heading-l{
+        margin: 1.5rem;
+    }
+    
+}

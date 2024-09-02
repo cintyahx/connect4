@@ -1,0 +1,20 @@
+<header>
+    <button (click)="toggleMenu()" class="btn-small">MENU</button>
+    <img src="assets/logo.svg" alt="logo">
+    <button (click)="restart()" class="btn-small">RESTART</button>
+</header>
+<div class="points-container">
+    <div class="player1-container scoreboard">
+        <img src="assets/player-one.svg" alt="player 1">
+        <h1 class="heading-s">Player 1</h1>
+        <h2 class="heading-l">{{this.scoreRed}}</h2>
+    </div>
+    <div class="player2-container scoreboard">
+        <img src="assets/player-two.svg" alt="player 2">
+        <h1 class="heading-s">Player 2</h1>
+    </div>
+</div>
+<app-board (scoreOutput)="getScore($event)" (winnerOutput)="getWinner($event)"></app-board>
+<footer [ngStyle]="this.winner === 'red' ? {'background-color': 'var(--red)'} : this.winner === 'yellow' ? {'background-color': 'var(--lime-green)'} : {'background-color': ''} "></footer>
+<div *ngIf="menuOpened" class="dark-background"></div>
+<app-pause-menu (restartOutput)="restart()" (continueOutput)="toggleMenu()" *ngIf="menuOpened"></app-pause-menu>
