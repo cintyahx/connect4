@@ -6,11 +6,11 @@
 <div class="points-container">
     <div class="player1-container scoreboard">
         <img src="assets/player-one.svg" alt="player 1">
-        <h1 class="heading-s">Player 1</h1>
+        <h1 class="heading-s">{{player1Name}}</h1>
     </div>
     <div class="player2-container scoreboard">
         <img src="assets/player-two.svg" alt="player 2">
-        <h1 class="heading-s">Player 2</h1>
+        <h1 class="heading-s">{{player2Name}}</h1>
     </div>
 </div>
 <app-board (winnerOutput)="getWinner($event)"></app-board>

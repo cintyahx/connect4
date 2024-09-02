@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { BoardComponent } from '../board/board.component';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-player-vs-player',
@@ -13,7 +14,10 @@ export class PlayerVsPlayerComponent implements OnInit {
   }
 
   winner = "";
-  menuOpened = false;
+  menuOpened = false;  
+  subs = new Subscription();
+  player1Name: string | null = '';
+  player2Name: string | null = '';
 
   getWinner(winner:string){
     this.winner = winner;
@@ -27,5 +31,8 @@ export class PlayerVsPlayerComponent implements OnInit {
     } else {
       document.body.setAttribute("class","background-pvp-rules");
     }
+
+    this.player1Name = sessionStorage.getItem('player1Name');
+    this.player2Name = sessionStorage.getItem('player2Name');
   }
 }

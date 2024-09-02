@@ -1,18 +1,18 @@
 <div class="main-top">
     <img src="assets/logo.svg" alt="logo">
 </div>
-<div class="main-center">    
+<form class="main-center" [formGroup]="gameForm">    
     <div class="main-center-field">        
         <img src="assets/player-one.svg" alt="player 1">
-        <input placeholder="Player 1" alt="name player 1">
+        <input type="text" placeholder="Player 1" id="player1Name" formControlName="player1Name" alt="name player 1">
     </div>
     <div class="main-center-field">        
         <img src="assets/player-two.svg" alt="player 2">
-        <input placeholder="Player 2" alt="name player 2">
+        <input type="text" placeholder="Player 2" id="player2Name" formControlName="player2Name" alt="name player 2">
     </div>
-</div>
+</form>
 <div class="main-bottom">
-    <button routerLink="/player-vs-player" class="btn">
+    <button class="btn" type="submit" (click)="submit()">
         <span>PLAY</span>
         <img src="assets/player-vs-player.svg" alt="player vs player">
     </button>
