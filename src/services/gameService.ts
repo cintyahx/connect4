@@ -1,27 +1,31 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Observable } from "rxjs";
+import { Observable, shareReplay } from "rxjs";
+import { Disc } from "src/app/models/disc.model";
+import { Player } from "src/app/models/player.model";
+import { Players } from "src/app/models/players.model";
 import { environment } from "src/environments/environment";
 
 @Injectable()
 export class GameService {
   constructor(private http: HttpClient) {}
 
-  createGame(): Observable<any> {
+  createGame(players: Players): Observable<any> {
     return this.http
-      .post<any>(`${environment.backend}/createGame`,{});
+      .post<any>(`${environment.backend}`, players)
+      .pipe(shareReplay());
   }
 
   getBoard(): Observable<any> {
     return this.http
-      .get<any>(`${environment.backend}/getBoard`)
+      .get<any>(`${environment.backend}`)
       .pipe();
   }
   
   getCurrentPlayer(): Observable<any> {
     return this.http
       .get<any>(`${environment.backend}/current-player`)
-      .pipe();
+      .pipe(shareReplay());
   }
    
   getWinner(): Observable<any> {
@@ -38,9 +42,7 @@ export class GameService {
    
   dropDisc(column:number): Observable<any> {
     return this.http
-      .post<any>(`${environment.backend}/$drop-disc`, column)
-      .pipe(res => {
-        return res;
-    });
+      .post<any>(`${environment.backend}/drop-disc`, column)
+      .pipe();
   }
 }
