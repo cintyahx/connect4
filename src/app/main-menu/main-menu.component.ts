@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
 })
 export class MainMenuComponent implements OnInit {
 
+  colorOne = document.documentElement.style.getPropertyValue('--player-one-color');
+  colorTwo = document.documentElement.style.getPropertyValue('--player-two-color');
   gameForm!: FormGroup;
   
   constructor(
@@ -22,7 +24,7 @@ export class MainMenuComponent implements OnInit {
     } else {
       document.body.setAttribute("class","background-pvp-rules");
     }
-      
+
     this.gameForm = this.createNewGameForm();
   }  
 
@@ -41,5 +43,13 @@ export class MainMenuComponent implements OnInit {
     sessionStorage.setItem('player2Name', player2Name !== '' ? player2Name : 'Player 2');
     
     this.router.navigate(["player-vs-player"]);
+  }
+
+  playerOneChangeColor(color: any){
+    document.documentElement.style.setProperty('--player-one-color', color);
+  }
+  
+  playerTwoChangeColor(color: any){
+    document.documentElement.style.setProperty('--player-two-color', color);
   }
 }

@@ -16,6 +16,7 @@
 
 <div [ngStyle]="roundOver ? {'opacity':'0'} : {'opacity':'1'}" class="current-turn">
     <img [ngStyle]="{'display':'block'}" src="assets/turn-background-{{this.currentPlayer.color}}.svg" alt="current-turn">
+    <h3 class="current-turn-wrapper">TURN</h3>
 </div>
 <div *ngIf="roundOver" class="winner-container">
     <h3 class="heading-xs">PLAYER {{this.winner?.name}}</h3>
