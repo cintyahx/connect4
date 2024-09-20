@@ -65,10 +65,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "connect-four:build:production"
+              "buildTarget": "connect-four:build:production"
             },
             "development": {
-              "browserTarget": "connect-four:build:development"
+              "buildTarget": "connect-four:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -76,7 +76,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "connect-four:build"
+            "buildTarget": "connect-four:build"
           }
         },
         "test": {
