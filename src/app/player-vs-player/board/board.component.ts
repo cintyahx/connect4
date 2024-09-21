@@ -11,6 +11,8 @@ import { GameService } from 'src/services/gameService';
   styleUrls: ['./board.component.scss']
 })
 export class BoardComponent {
+currentColumn: number | null = 0;
+
 @Output() winnerOutput = new EventEmitter<string>();
   board = 
   [
@@ -85,6 +87,7 @@ export class BoardComponent {
   constructor(
     private gameService: GameService) { 
       this.currentPlayer = {
+        number: 1,
         color: 'red',
         name: ''
       }
@@ -97,12 +100,14 @@ export class BoardComponent {
   newGame(){    
     this.players = {
       playerOne: {
+        number: 1,
         name: sessionStorage.getItem('player1Name')!,
-        color: 'red'
+        color: document.documentElement.style.getPropertyValue("--player-one-color")
       },
       playerTwo: {
+        number: 2,
         name: sessionStorage.getItem('player2Name')!,
-        color: 'green'
+        color: document.documentElement.style.getPropertyValue("--player-two-color")
       },
     };
 
@@ -125,7 +130,7 @@ export class BoardComponent {
   }
 
   refreshBoard(element: Array<Disc>){
-    element.forEach((disc) => {
+    Array.from(element).forEach((disc) => {
       this.board[disc.column][disc.row].color = disc.color
     });
     this.getCurrentPlayer();

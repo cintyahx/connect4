@@ -12,37 +12,37 @@ export class GameService {
 
   createGame(players: Players): Observable<any> {
     return this.http
-      .post<any>(`${environment.backend}`, players)
+      .post<any>(`${environment.backend}/Connect4`, players)
       .pipe(shareReplay());
   }
 
   getBoard(): Observable<any> {
     return this.http
-      .get<any>(`${environment.backend}`)
+      .get<any>(`${environment.backend}/Connect4`)
       .pipe();
   }
   
   getCurrentPlayer(): Observable<any> {
     return this.http
-      .get<any>(`${environment.backend}/current-player`)
+      .get<any>(`${environment.backend}/Connect4/current-player`)
       .pipe(shareReplay());
   }
    
   getWinner(): Observable<any> {
     return this.http
-      .get<any>(`${environment.backend}/winner`)
+      .get<any>(`${environment.backend}/Connect4/winner`)
       .pipe();
   }
    
   getIsOver(): Observable<any> {
     return this.http
-      .get<any>(`${environment.backend}/is-over`)
+      .get<any>(`${environment.backend}/Connect4/is-over`)
       .pipe();
   }
    
   dropDisc(column:number): Observable<any> {
     return this.http
-      .post<any>(`${environment.backend}/drop-disc`, column)
+      .post<any>(`${environment.backend}/Connect4/drop-disc`, column)
       .pipe();
   }
 }
