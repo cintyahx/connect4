@@ -5,11 +5,11 @@
 </header>
 <div class="points-container">
     <div class="player1-container scoreboard">
-        <img src="assets/player-one.svg" alt="player 1">
+        <app-player-icon [player]="1"></app-player-icon>
         <h1 class="heading-s">{{player1Name}}</h1>
     </div>
     <div class="player2-container scoreboard">
-        <img src="assets/player-two.svg" alt="player 2">
+        <app-player-icon [player]="2"></app-player-icon>
         <h1 class="heading-s">{{player2Name}}</h1>
     </div>
 </div>

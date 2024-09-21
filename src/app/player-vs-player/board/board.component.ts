@@ -11,6 +11,8 @@ import { GameService } from 'src/services/gameService';
   styleUrls: ['./board.component.scss']
 })
 export class BoardComponent {
+currentColumn: number | null = 0;
+
 @Output() winnerOutput = new EventEmitter<string>();
   board = 
   [
@@ -85,6 +87,7 @@ export class BoardComponent {
   constructor(
     private gameService: GameService) { 
       this.currentPlayer = {
+        number: 1,
         color: 'red',
         name: ''
       }
@@ -97,10 +100,12 @@ export class BoardComponent {
   newGame(){    
     this.players = {
       playerOne: {
+        number: 1,
         name: sessionStorage.getItem('player1Name')!,
         color: 'red'
       },
       playerTwo: {
+        number: 2,
         name: sessionStorage.getItem('player2Name')!,
         color: 'green'
       },

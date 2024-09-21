@@ -5,12 +5,21 @@ import { PlayerVsPlayerRoutingModule } from './player-vs-player-routing.module';
 import { BoardComponent } from './board/board.component';
 import { PauseMenuComponent } from './pause-menu/pause-menu.component'
 import { GameService } from 'src/services/gameService';
+import { PlayerIconComponent } from '../player/player-icon/player-icon.component';
+import { PlayerBottomMarkerComponent } from '../player/player-bottom-marker/player-bottom-marker.component';
+import { PlayerTopMarkerComponent } from '../player/player-top-marker/player-top-marker.component';
+import { PlayerCounterComponent } from '../player/player-counter/player-counter.component';
+
 
 @NgModule({
   declarations: [
     PlayerVsPlayerComponent,
     BoardComponent,
-    PauseMenuComponent
+    PauseMenuComponent,
+    PlayerIconComponent,
+    PlayerBottomMarkerComponent,
+    PlayerTopMarkerComponent,
+    PlayerCounterComponent
   ],
   imports: [
     CommonModule,
