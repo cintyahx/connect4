@@ -1,9 +1,22 @@
 <div class="field-container">
-    <button (click)="setDot(i)" [disabled]="roundOver" *ngFor="let disc of [0,1,2,3,4,5,6]; let i = index" class="column column{{i}}">
-        <img ngClass="marker marker-{{this.currentPlayer.color}}" src="assets/marker-{{this.currentPlayer.color}}.svg" alt="marker">
+    <button (click)="setDot(i)" 
+            [disabled]="roundOver" 
+            *ngFor="let disc of [0,1,2,3,4,5,6]; let i = index" 
+            class="column column{{i}}"
+            (mouseenter)="currentColumn = i" 
+            (mouseleave)="currentColumn = null">
+        
+        <app-player-top-marker 
+            *ngIf="currentColumn === i" 
+            [player]="this.currentPlayer.number"
+            class="marker"></app-player-top-marker>
+        
         <div *ngFor="let dot of [0,1,2,3,4,5]; let j = index" class="dot dot{{j}}">
             <!--Desktop dots-->
-            <img *ngIf="board[i][j].color !== null && board[i][j].color !== ''" class="point-img point-img-{{j}}" src="assets/counter-{{board[i][j].color}}-large.svg" alt="{{board[i][j].color}}-dot">
+            <img *ngIf="board[i][j].color !== null && board[i][j].color !== ''" 
+                 class="point-img point-img-{{j}}" 
+                 src="assets/counter-red-large.svg" 
+                 alt="{{board[i][j].color}}-dot">
         </div>
     </button>
 </div>
@@ -15,7 +28,7 @@
 <img class="layer-mobile white-layer" src="assets/board-layer-white-small.svg" alt="white-layer">
 
 <div [ngStyle]="roundOver ? {'opacity':'0'} : {'opacity':'1'}" class="current-turn">
-    <img [ngStyle]="{'display':'block'}" src="assets/turn-background-{{this.currentPlayer.color}}.svg" alt="current-turn">
+    <app-player-bottom-marker [player]=this.currentPlayer.number></app-player-bottom-marker>
     <h3 class="current-turn-wrapper">{{'connect-four.turn' | translate}}</h3>
 </div>
 <div *ngIf="roundOver" class="winner-container">
