@@ -12,16 +12,18 @@ export class CrudTranslateService {
   ) {}
 
   public detectCurrent() {
-      this.set(Language.Portuguese);
-      return;
+    
+    //let lang = document.documentElement.lang;
+    //let lang = this.translate.currentLang;
+    //let indexOfLang = Object.values(Language).indexOf(lang as unknown as Language);
+    //let keyLang = Object.keys(Language)[indexOfLang];
+
+    this.translate.use(this.translate.currentLang);
+    return;
   }
 
   public set(language: Language) {
-    this.translate.setDefaultLang(language);
-    registerLocaleData(LanguageToNgLanguage.get(language));
-  }
-
-  public get(): Language {
-    return Language.Portuguese;
+    //registerLocaleData(LanguageToNgLanguage.get(language));
+    this.translate.use
   }
 }

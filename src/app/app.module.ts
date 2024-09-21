@@ -3,37 +3,46 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainMenuComponent } from './main-menu/main-menu.component';
-import { HttpClient, HttpClientModule, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { HttpBackend, HttpClient, HttpClientModule, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { ColorPickerModule } from 'ngx-color-picker';
+import { CrudTranslateService } from 'src/services/crud-translate';
+import { LanguageComponent } from './language/language.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainMenuComponent
+    MainMenuComponent,
+    LanguageComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
+    AppRoutingModule,    
+    FormsModule,
+    ReactiveFormsModule,
+    ColorPickerModule,
     TranslateModule.forRoot({
-      defaultLanguage: 'en',
       loader: {
           provide: TranslateLoader,
-          useFactory: HttpLoaderFactory,
-          deps: [HttpClient]
+          useFactory: (httpBackend: HttpBackend): TranslateHttpLoader =>
+            new TranslateHttpLoader(new HttpClient(httpBackend), './assets/i18n/', '.json'),
+          deps: [HttpBackend],
       }
-    }),
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule
+    })
   ], 
-  exports: [TranslateModule],
+  exports: [ColorPickerModule],
   providers: [provideHttpClient(withInterceptorsFromDi())],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(translateService: CrudTranslateService) {
+    translateService.detectCurrent();
+  } 
+}
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
-  return new TranslateHttpLoader(http, './i18n/', '.json');
+  return new TranslateHttpLoader(http, '.assets/i18n/', '.json');
 }

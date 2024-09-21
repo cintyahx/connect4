@@ -4,7 +4,7 @@ import ng_es from '@angular/common/locales/es';
 
 export enum Language {
   Portuguese = 'pt-br',
-  English = 'en-us',
+  English = 'en',
   Spanish = 'es'
 }
 

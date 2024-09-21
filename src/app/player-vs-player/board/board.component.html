@@ -16,10 +16,10 @@
 
 <div [ngStyle]="roundOver ? {'opacity':'0'} : {'opacity':'1'}" class="current-turn">
     <img [ngStyle]="{'display':'block'}" src="assets/turn-background-{{this.currentPlayer.color}}.svg" alt="current-turn">
-    <h3 class="current-turn-wrapper">TURN</h3>
+    <h3 class="current-turn-wrapper">{{'connect-four.turn' | translate}}</h3>
 </div>
 <div *ngIf="roundOver" class="winner-container">
-    <h3 class="heading-xs">PLAYER {{this.winner?.name}}</h3>
-    <h4 class="heading-l">WINS</h4>
-    <button (click)="restart()" class="btn-small">JOGAR NOVAMENTE</button>
+    <h3 class="heading-xs">{{'connect-four.player' | translate}} {{this.winner?.name}}</h3>
+    <h4 class="heading-l">{{'connect-four.wins' | translate}}</h4>
+    <button (click)="restart()" class="btn-small">{{'connect-four.play-again' | translate}}</button>
 </div>

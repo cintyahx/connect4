@@ -1,4 +1,11 @@
-:host{
+.custom{    
+    display: flex;
+    flex-direction: column;
+    width: 30rem;
+    align-items: flex-end;
+}
+
+.background-main{
     display: block;
     height: 40rem;
     width: 30rem;

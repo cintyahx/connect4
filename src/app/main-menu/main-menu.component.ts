@@ -51,5 +51,5 @@ export class MainMenuComponent implements OnInit {
   
   playerTwoChangeColor(color: any){
     document.documentElement.style.setProperty('--player-two-color', color);
-  }
+  }  
 }

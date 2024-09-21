@@ -5,6 +5,7 @@ import { PlayerVsPlayerRoutingModule } from './player-vs-player-routing.module';
 import { BoardComponent } from './board/board.component';
 import { PauseMenuComponent } from './pause-menu/pause-menu.component'
 import { GameService } from 'src/services/gameService';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,10 @@ import { GameService } from 'src/services/gameService';
   imports: [
     CommonModule,
     PlayerVsPlayerRoutingModule,
+    TranslateModule
+  ],
+  exports: [
+    TranslateModule
   ],
   providers: [GameService],
 })

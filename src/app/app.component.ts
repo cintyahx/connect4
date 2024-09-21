@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { Language } from './enum/language.enum';
 
 @Component({
   selector: 'app-root',
@@ -7,11 +8,12 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'connect-four';
+  title = 'connect-four';  
   
   constructor(private translate: TranslateService) {
-    this.translate.addLangs(['de', 'en']);
-    this.translate.setDefaultLang('en');
-    this.translate.use('en');
+    this.translate.addLangs(Object.keys(Language));
+    this.translate.setDefaultLang(Language.English);
+    this.translate.use(Language.English);
   }
 }
+
