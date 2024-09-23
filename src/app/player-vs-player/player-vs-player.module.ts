@@ -10,6 +10,7 @@ import { PlayerIconComponent } from '../player/player-icon/player-icon.component
 import { PlayerBottomMarkerComponent } from '../player/player-bottom-marker/player-bottom-marker.component';
 import { PlayerTopMarkerComponent } from '../player/player-top-marker/player-top-marker.component';
 import { PlayerCounterComponent } from '../player/player-counter/player-counter.component';
+import { LanguageModule } from '../language/language.component.module';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { PlayerCounterComponent } from '../player/player-counter/player-counter.
   imports: [
     CommonModule,
     PlayerVsPlayerRoutingModule,
-    TranslateModule
+    TranslateModule,
+    LanguageModule
   ],
   exports: [
     TranslateModule

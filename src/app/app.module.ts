@@ -9,13 +9,13 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { ColorPickerModule } from 'ngx-color-picker';
 import { CrudTranslateService } from 'src/services/crud-translate';
-import { LanguageComponent } from './language/language.component';
+import { CommonModule } from '@angular/common';
+import { LanguageModule } from './language/language.component.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainMenuComponent,
-    LanguageComponent
+    MainMenuComponent
   ],
   imports: [
     BrowserModule,
@@ -31,12 +31,14 @@ import { LanguageComponent } from './language/language.component';
             new TranslateHttpLoader(new HttpClient(httpBackend), './assets/i18n/', '.json'),
           deps: [HttpBackend],
       }
-    })
+    }),
+    LanguageModule
   ], 
   exports: [ColorPickerModule],
   providers: [provideHttpClient(withInterceptorsFromDi())],
   bootstrap: [AppComponent]
 })
+
 export class AppModule {
   constructor(translateService: CrudTranslateService) {
     translateService.detectCurrent();
