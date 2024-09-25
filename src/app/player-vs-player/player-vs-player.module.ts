@@ -17,9 +17,6 @@ import { LanguageModule } from '../language/language.component.module';
   declarations: [
     PlayerVsPlayerComponent,
     BoardComponent,
-    PauseMenuComponent,
-    PlayerIconComponent,
-    PlayerBottomMarkerComponent,
     PlayerTopMarkerComponent,
     PlayerCounterComponent
   ],
@@ -27,6 +24,9 @@ import { LanguageModule } from '../language/language.component.module';
     CommonModule,
     PlayerVsPlayerRoutingModule,
     TranslateModule,
+    PauseMenuComponent,  
+    PlayerIconComponent,  
+    PlayerBottomMarkerComponent,
     LanguageModule
   ],
   exports: [

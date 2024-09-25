@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-player-bottom-marker',
+  standalone: true,
   templateUrl: './player-bottom-marker.component.html'
 })
 export class PlayerBottomMarkerComponent {

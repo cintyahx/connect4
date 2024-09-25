@@ -7,6 +7,8 @@ const routes: Routes = [
   import('./rules/rules.module').then((m) => m.RulesModule) },
   { path: 'player-vs-player', loadChildren: () =>
   import('./player-vs-player/player-vs-player.module').then(m => m.PlayerVsPlayerModule) },
+  { path: 'tic-tac-toe', loadChildren: () =>
+  import('./tic-tac-toe/tic-tac-toe.module').then(m => m.TicTacToeModule) },
   { path: '', component: MainMenuComponent },
   { path: '**', component: MainMenuComponent }
 ];

@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 
 @Component({
     selector: 'app-player-icon',
+    standalone: true,
     templateUrl: './player-icon.component.html'
 })
 export class PlayerIconComponent {
