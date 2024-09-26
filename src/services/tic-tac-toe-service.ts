@@ -1,48 +1,46 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable, shareReplay } from "rxjs";
-import { Disc } from "src/app/models/disc.model";
-import { Player } from "src/app/models/player.model";
 import { Players } from "src/app/models/players.model";
 import { environment } from "src/environments/environment";
 
 @Injectable()
-export class GameService {
+export class TicTacToeService {
   constructor(private http: HttpClient) {}
 
   createGame(players: Players): Observable<any> {
     return this.http
-      .post<any>(`${environment.backend}/Connect4`, players)
+      .post<any>(`${environment.backend}/TicTacToe`, players)
       .pipe(shareReplay());
   }
 
   getBoard(): Observable<any> {
     return this.http
-      .get<any>(`${environment.backend}/Connect4`)
+      .get<any>(`${environment.backend}/TicTacToe`)
       .pipe();
   }
   
   getCurrentPlayer(): Observable<any> {
     return this.http
-      .get<any>(`${environment.backend}/Connect4/current-player`)
+      .get<any>(`${environment.backend}/TicTacToe/current-player`)
       .pipe(shareReplay());
   }
    
   getWinner(): Observable<any> {
     return this.http
-      .get<any>(`${environment.backend}/Connect4/winner`)
+      .get<any>(`${environment.backend}/TicTacToe/winner`)
       .pipe();
   }
    
   getIsOver(): Observable<any> {
     return this.http
-      .get<any>(`${environment.backend}/Connect4/is-over`)
+      .get<any>(`${environment.backend}/TicTacToe/is-over`)
       .pipe();
   }
    
-  dropDisc(column:number): Observable<any> {
+  dropDisc(column: number, row: number): Observable<any> {
     return this.http
-      .post<any>(`${environment.backend}/Connect4/drop-disc`, column)
+      .post<any>(`${environment.backend}/TicTacToe/drop-disc`, { column, row })
       .pipe();
   }
 }

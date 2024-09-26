@@ -1,4 +1,3 @@
-
 <header>
     <app-language></app-language>
     <div>
@@ -17,15 +16,7 @@
         <h1 class="heading-s">{{player2Name}}</h1>
     </div>
 </div>
+<app-tic-tac-toe-board (winnerOutput)="getWinner($event)"></app-tic-tac-toe-board>
+<footer [ngStyle]="this.winner === 'red' ? {'background-color': 'var(--red)'} : this.winner === 'green' ? {'background-color': 'var(--lime-green)'} : {'background-color': ''} "></footer>
 <div *ngIf="menuOpened" class="dark-background"></div>
 <app-pause-menu (restartOutput)="restart()" (continueOutput)="toggleMenu()" *ngIf="menuOpened"></app-pause-menu>
-
-
-
-<img class="layer" src="assets/grid.svg" >
-
-<div [ngStyle]="roundOver ? {'opacity':'0'} : {'opacity':'1'}" class="current-turn">
-    <app-player-bottom-marker [player]=this.currentPlayer.number></app-player-bottom-marker>
-    <h3 class="current-turn-wrapper">{{'turn' | translate}}</h3>
-</div>
-<footer></footer>

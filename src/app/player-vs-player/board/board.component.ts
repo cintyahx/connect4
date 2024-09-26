@@ -3,7 +3,7 @@ import { map, tap } from 'rxjs';
 import { Disc } from 'src/app/models/disc.model';
 import { Player } from 'src/app/models/player.model';
 import { Players } from 'src/app/models/players.model';
-import { GameService } from 'src/services/gameService';
+import { ConnectFourService } from 'src/services/connect-four-service';
 
 @Component({
   selector: 'app-board',
@@ -85,7 +85,7 @@ currentColumn: number | null = 0;
   srcBackground="assets/turn-background-red.svg";
   
   constructor(
-    private gameService: GameService) { 
+    private connectFourService: ConnectFourService) { 
       this.currentPlayer = {
         number: 1,
         color: 'red',
@@ -111,7 +111,7 @@ currentColumn: number | null = 0;
       },
     };
 
-    this.gameService.createGame(this.players)
+    this.connectFourService.createGame(this.players)
     .pipe(
       tap(() => {
         this.getBoard()
@@ -120,7 +120,7 @@ currentColumn: number | null = 0;
   }
 
   getBoard(){
-    this.gameService.getBoard()
+    this.connectFourService.getBoard()
     .pipe(
         tap((result) =>{
           this.refreshBoard(result.data);
@@ -137,7 +137,7 @@ currentColumn: number | null = 0;
   }
 
   getCurrentPlayer(){    
-    this.gameService.getCurrentPlayer()
+    this.connectFourService.getCurrentPlayer()
     .pipe(        
         tap((result) =>{
           this.currentPlayer = result.data;
@@ -148,7 +148,7 @@ currentColumn: number | null = 0;
   }
 
   setDot(columnIndex:number){
-    this.gameService.dropDisc(columnIndex)
+    this.connectFourService.dropDisc(columnIndex)
     .pipe(
         tap(() =>{
           this.getBoard();
@@ -167,7 +167,7 @@ currentColumn: number | null = 0;
   }  
 
   getWinner(){
-    this.gameService.getWinner()
+    this.connectFourService.getWinner()
     .pipe(
       tap((result) => {
         this.setWinner(result.data)
@@ -177,7 +177,7 @@ currentColumn: number | null = 0;
   }
 
   calculateWin(){
-    this.gameService.getIsOver()
+    this.connectFourService.getIsOver()
     .pipe(
       tap((result) => {
         this.roundOver = result.data;

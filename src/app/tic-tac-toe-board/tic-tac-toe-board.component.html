@@ -1,0 +1,33 @@
+<div class="field-container">
+    <div *ngFor="let row of [0,1,2]; let i = index" 
+            class="row row{{i}}">
+        
+        <!--<app-player-top-marker 
+            *ngIf="currentColumn === i" 
+            [player]="this.currentPlayer.number"
+            class="marker"></app-player-top-marker>-->
+            
+        <button (click)="setDot(i, j)" 
+        [disabled]="roundOver"
+                *ngFor="let column of [0,1,2]; let j = index" 
+                class="column column{{j}}">
+            
+            <img *ngIf="board[i][j].color !== null && board[i][j].color !== ''" 
+            class="point-img point-img-{{j}}" 
+            src="assets/counter-red-large.svg" 
+            alt="{{board[i][j].color}}-dot">
+        </button>
+    </div>
+    <img class="layer" src="assets/grid.svg" >
+    <div [ngStyle]="roundOver ? {'opacity':'0'} : {'opacity':'1'}" class="current-turn">
+        <app-player-bottom-marker [player]=this.currentPlayer.number></app-player-bottom-marker>
+        <h3 class="current-turn-wrapper">{{'turn' | translate}}</h3>
+    </div>
+</div>
+
+
+<div *ngIf="roundOver" class="winner-container">
+    <h3 class="heading-xs">{{'player' | translate}} {{this.winner?.name}}</h3>
+    <h4 class="heading-l">{{'wins' | translate}}</h4>
+    <button (click)="restart()" class="btn-small">{{'play-again' | translate}}</button>
+</div>

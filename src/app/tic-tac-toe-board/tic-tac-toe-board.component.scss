@@ -1,0 +1,126 @@
+:host{
+    position: relative;
+    display: block;
+
+}
+.layer{
+    position: absolute;
+    top:0;
+    left: 0;
+}
+.field-container{
+    display: flex;
+    flex-direction: column;
+    gap: 1.125rem;
+    padding: 1.1rem 1.05rem 1.5rem 1.1rem;
+}
+.row{
+    display: flex;
+    flex-direction: row;
+    gap: 1.19rem;
+    &:hover .marker{
+        opacity: 1;
+    }
+}
+.column{
+    height: 12rem;
+    width: 12rem;
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.point-img-2{
+    position: relative;
+    animation-duration: .2s;
+}
+.point-img-1{
+    position: relative;
+    animation-duration: .1s;
+}
+.point-img-0{
+    position: relative;
+    animation-duration: .1s;
+}
+.current-turn{
+    margin-top: -1rem;
+    position: relative;
+    z-index: 15;
+    display: flex;
+    justify-content: center;
+    .current-turn-wrapper{
+        position: absolute;
+        z-index: 20;
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    h3{
+        margin: 0;
+    }
+    h4{
+        margin: 0;
+    }
+}
+.marker{
+    position: absolute;
+    top: 0;
+    transform: translate(50%,-110%);
+    opacity: 0;
+    transition: opacity .15s;
+}
+
+.winner-container{
+    background-color: var(--white);
+    border: 0.18rem solid var(--black);
+    box-shadow: 0rem 0.625rem 0rem var(--black);
+    border-radius: 1.25rem;
+    width: 17.82rem;
+    height: 10rem;
+    position:absolute;
+    bottom:0;
+    left: 50%;
+    z-index: 15;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(-50%);
+    h3{
+        margin: 0;
+    }
+    h4{
+        margin: 0;
+    }
+}
+
+@media screen and (max-width:48rem){
+    .marker{
+        display: none;
+    }
+}
+@media screen and (max-width:36rem){
+    .field-container{
+        overflow: visible;
+        gap: .4rem;
+        padding: .4rem 1.05rem 1.5rem .5rem;
+    }
+    .row{
+        gap: .05rem;
+    }
+    .point-img{
+        display:none;
+    }
+    .layer{
+        display: none;
+    }
+    .column{
+        height: 2.875rem;
+        width: 2.5rem;
+    }
+}

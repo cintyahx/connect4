@@ -7,12 +7,15 @@ import { PauseMenuComponent } from '../player-vs-player/pause-menu/pause-menu.co
 import { LanguageModule } from '../language/language.component.module';
 import { PlayerBottomMarkerComponent } from '../player/player-bottom-marker/player-bottom-marker.component';
 import { PlayerIconComponent } from '../player/player-icon/player-icon.component';
+import { TicTacToeService } from 'src/services/tic-tac-toe-service';
+import { TicTacToeBoardComponent } from '../tic-tac-toe-board/tic-tac-toe-board.component';
 
 
 
 @NgModule({
   declarations: [
-    TicTacToeComponent
+    TicTacToeComponent,
+    TicTacToeBoardComponent
   ],
   imports: [
     CommonModule,
@@ -25,6 +28,7 @@ import { PlayerIconComponent } from '../player/player-icon/player-icon.component
   ],
   exports: [
     TranslateModule
-  ]
+  ],
+  providers: [TicTacToeService]
 })
 export class TicTacToeModule { }

@@ -4,7 +4,7 @@ import { PlayerVsPlayerComponent } from './player-vs-player/player-vs-player.com
 import { PlayerVsPlayerRoutingModule } from './player-vs-player-routing.module';
 import { BoardComponent } from './board/board.component';
 import { PauseMenuComponent } from './pause-menu/pause-menu.component'
-import { GameService } from 'src/services/gameService';
+import { ConnectFourService } from 'src/services/connect-four-service';
 import { TranslateModule } from '@ngx-translate/core';
 import { PlayerIconComponent } from '../player/player-icon/player-icon.component';
 import { PlayerBottomMarkerComponent } from '../player/player-bottom-marker/player-bottom-marker.component';
@@ -32,6 +32,6 @@ import { LanguageModule } from '../language/language.component.module';
   exports: [
     TranslateModule
   ],
-  providers: [GameService],
+  providers: [ConnectFourService],
 })
 export class PlayerVsPlayerModule { }
