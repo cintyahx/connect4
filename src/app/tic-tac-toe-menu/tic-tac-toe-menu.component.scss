@@ -14,6 +14,7 @@
     box-shadow: 0rem 0.625rem 0rem var(--black);
     border-radius: 2.5rem;
 }
+
 .main-top{
     margin: 4.5rem 0 4.5rem 0;
     img{
@@ -37,6 +38,7 @@
     }
 }
 
+
 .main-bottom{
     margin-bottom: 4rem;
     button{
@@ -50,10 +52,10 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-        }  
+        }
         &:last-child{
             background-color: var(--jordy-blue);
-        }  
+        }   
     }
 }
 

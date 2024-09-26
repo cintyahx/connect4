@@ -3,12 +3,11 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-main-menu',
-  templateUrl: './main-menu.component.html',
-  styleUrls: ['./main-menu.component.scss']
+  selector: 'app-tic-tac-toe-menu',
+  templateUrl: './tic-tac-toe-menu.component.html',
+  styleUrl: './tic-tac-toe-menu.component.scss'
 })
-export class MainMenuComponent implements OnInit {
-
+export class TicTacToeMenuComponent implements OnInit{
   colorOne = document.documentElement.style.getPropertyValue('--player-one-color');
   colorTwo = document.documentElement.style.getPropertyValue('--player-two-color');
   gameForm!: FormGroup;
@@ -18,10 +17,10 @@ export class MainMenuComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(){
-      document.body.setAttribute("class","main-menu-background");
+    document.body.setAttribute("class","main-menu-background");
 
     this.gameForm = this.createNewGameForm();
-  }  
+  } 
 
   private createNewGameForm() {
     return this.fb.group({
@@ -37,7 +36,7 @@ export class MainMenuComponent implements OnInit {
     sessionStorage.setItem('player1Name', player1Name !== '' ? player1Name : 'Player 1');
     sessionStorage.setItem('player2Name', player2Name !== '' ? player2Name : 'Player 2');
     
-    this.router.navigate(["connect4"]);
+    this.router.navigate(["tic-tac-toe"]);
   }
 
   playerOneChangeColor(color: any){

@@ -9,13 +9,16 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { ColorPickerModule } from 'ngx-color-picker';
 import { CrudTranslateService } from 'src/services/crud-translate';
-import { CommonModule } from '@angular/common';
 import { LanguageModule } from './language/language.component.module';
+import { TicTacToeMenuComponent } from './tic-tac-toe-menu/tic-tac-toe-menu.component';
+import { HomeModeComponent } from './home-mode/home-mode.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainMenuComponent
+    HomeModeComponent,
+    MainMenuComponent,
+    TicTacToeMenuComponent
   ],
   imports: [
     BrowserModule,

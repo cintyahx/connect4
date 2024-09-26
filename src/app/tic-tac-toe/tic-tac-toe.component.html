@@ -2,9 +2,9 @@
 <header>
     <app-language></app-language>
     <div>
-        <button (click)="toggleMenu()" class="btn-small">{{'connect-four.menu' | translate}}</button>
-        <img src="assets/logo.svg" alt="logo">
-        <button (click)="restart()" class="btn-small">{{'connect-four.restart' | translate}}</button>
+        <button (click)="toggleMenu()" class="btn-small">{{'menu' | translate}}</button>
+        <img src="assets/tic-tac-toe-logo.svg" alt="logo">
+        <button (click)="restart()" class="btn-small">{{'restart' | translate}}</button>
     </div>
 </header>
 <div class="points-container">
@@ -26,6 +26,6 @@
 
 <div [ngStyle]="roundOver ? {'opacity':'0'} : {'opacity':'1'}" class="current-turn">
     <app-player-bottom-marker [player]=this.currentPlayer.number></app-player-bottom-marker>
-    <h3 class="current-turn-wrapper">{{'connect-four.turn' | translate}}</h3>
+    <h3 class="current-turn-wrapper">{{'turn' | translate}}</h3>
 </div>
 <footer></footer>
