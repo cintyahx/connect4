@@ -3,16 +3,18 @@
     display: block;
 
 }
-.layer{
+.layer-grid{
     position: absolute;
     top:0;
     left: 0;
+    pointer-events: none;
 }
 .field-container{
     display: flex;
     flex-direction: column;
     gap: 1.125rem;
     padding: 1.1rem 1.05rem 1.5rem 1.1rem;
+    overflow: hidden;
 }
 .row{
     display: flex;
@@ -29,20 +31,16 @@
     margin: 0;
     border: none;
     background: transparent;
-    cursor: pointer;
 }
 
 .point-img-2{
     position: relative;
-    animation-duration: .2s;
 }
 .point-img-1{
     position: relative;
-    animation-duration: .1s;
 }
 .point-img-0{
     position: relative;
-    animation-duration: .1s;
 }
 .current-turn{
     margin-top: -1rem;
@@ -115,9 +113,6 @@
     }
     .point-img{
         display:none;
-    }
-    .layer{
-        display: none;
     }
     .column{
         height: 2.875rem;

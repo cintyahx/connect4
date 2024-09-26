@@ -1,28 +1,25 @@
 <div class="field-container">
-    <div *ngFor="let row of [0,1,2]; let i = index" 
-            class="row row{{i}}">
+    <div 
+    *ngFor="let row of [0,1,2]" 
+            class="row row{{row}}" >
         
         <!--<app-player-top-marker 
             *ngIf="currentColumn === i" 
             [player]="this.currentPlayer.number"
             class="marker"></app-player-top-marker>-->
             
-        <button (click)="setDot(i, j)" 
-        [disabled]="roundOver"
-                *ngFor="let column of [0,1,2]; let j = index" 
-                class="column column{{j}}">
+        <button (click)="setDot(row, column)" 
+                *ngFor="let column of [0,1,2]" 
+                class="column column{{column}}">
             
-            <img *ngIf="board[i][j].color !== null && board[i][j].color !== ''" 
-            class="point-img point-img-{{j}}" 
-            src="assets/counter-red-large.svg" 
-            alt="{{board[i][j].color}}-dot">
         </button>
     </div>
-    <img class="layer" src="assets/grid.svg" >
-    <div [ngStyle]="roundOver ? {'opacity':'0'} : {'opacity':'1'}" class="current-turn">
-        <app-player-bottom-marker [player]=this.currentPlayer.number></app-player-bottom-marker>
-        <h3 class="current-turn-wrapper">{{'turn' | translate}}</h3>
-    </div>
+</div>
+
+<img class="layer-grid" src="assets/grid.svg" >
+<div [ngStyle]="roundOver ? {'opacity':'0'} : {'opacity':'1'}" class="current-turn">
+    <app-player-bottom-marker [player]=this.currentPlayer.number></app-player-bottom-marker>
+    <h3 class="current-turn-wrapper">{{'turn' | translate}}</h3>
 </div>
 
 
