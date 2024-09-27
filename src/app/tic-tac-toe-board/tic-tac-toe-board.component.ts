@@ -1,56 +1,153 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { tap } from 'rxjs';
 import { TicTacToeService } from 'src/services/tic-tac-toe-service';
 import { Player } from '../models/player.model';
+import { Players } from '../models/players.model';
+import { Disc } from '../models/disc.model';
+import { Board } from '../models/board.model';
 
 @Component({
   selector: 'app-tic-tac-toe-board',
   templateUrl: './tic-tac-toe-board.component.html',
   styleUrl: './tic-tac-toe-board.component.scss'
 })
-export class TicTacToeBoardComponent {
+export class TicTacToeBoardComponent implements OnInit{
   @Output() winnerOutput = new EventEmitter<string>();
+  
+  board = 
+  [
+    [
+      {color: ""},
+      {color: ""},
+      {color: ""},
+    ],
+    [
+      {color: ""},
+      {color: ""},
+      {color: ""},
+    ],
+    [
+      {color: ""},
+      {color: ""},
+      {color: ""},
+    ],
+  ]
+  
   roundOver = false;
   currentPlayer: Player;
+  players?: Players;
   winner?: Player;
 
-  constructor(
-    private ticTacToeService: TicTacToeService) { 
-      this.currentPlayer = {
-        number: 1,
-        color: 'red',
-        name: ''
-      }
+  constructor(private ticTacToeService: TicTacToeService) { 
+    this.currentPlayer = {
+      number: 1,
+      color: 'x',
+      name: '',
+      isComputerPlayer: false
     }
-
-  
-board = 
-[
-  [
-    {color: ""},
-    {color: ""},
-    {color: ""},
-  ],
-  [
-    {color: ""},
-    {color: ""},
-    {color: ""},
-  ],
-  [
-    {color: ""},
-    {color: ""},
-    {color: ""},
-  ],
-]
-
-  restart(){
-    //this.boardComponent.restart()
   }
 
-  setDot(rowIndex: number, columnIndex: number){
-    this.ticTacToeService.dropDisc(columnIndex, rowIndex)
+  ngOnInit(): void {
+    this.newGame();
+  }
+
+  newGame(){    
+    this.players = {
+      playerOne: {
+        number: 1,
+        name: sessionStorage.getItem('player1Name')!,
+        color: "x",
+        isComputerPlayer: false
+      },
+      playerTwo: {
+        number: 2,
+        name: sessionStorage.getItem('player2Name')!,
+        color: "o",
+        isComputerPlayer: false
+      },
+    };
+
+    this.ticTacToeService.createGame(this.players)
+    .pipe(
+      tap(() => {
+        this.getBoard()
+      }))
+    .subscribe();
+  }
+
+  getBoard(){
+    this.ticTacToeService.getBoard()
+    .pipe(
+        tap((result) =>{
+          this.refreshBoard(result.data);
+        })
+    )
+    .subscribe();
+  }
+
+  refreshBoard(board: Board){
+    Array.from(board.discs).forEach((disc) => {
+      this.board[disc.column][disc.row].color = disc.color
+    });
+    
+    this.currentPlayer = board.currentPlayer;
+
+    if(board.isOver){
+      this.winner = board.winner;
+      this.setWinner(board.winner);
+    }
+  }
+
+  getCurrentPlayer(){    
+    this.ticTacToeService.getCurrentPlayer()
+    .pipe(        
+        tap((result) =>{
+          this.currentPlayer = result.data;
+          this.calculateWin();
+        })
+      )
+      .subscribe();
+  }
+
+  calculateWin(){
+    this.ticTacToeService.getIsOver()
+    .pipe(
+      tap((result) => {
+        this.roundOver = result.data;
+        if(result.data){
+          this.getWinner();
+        }
+    })
+    )
+    .subscribe();
+  }
+
+  getWinner(){
+    this.ticTacToeService.getWinner()
+    .pipe(
+      tap((result) => {
+        this.setWinner(result.data)
+    })
+    )
+    .subscribe();
+  }
+
+  setWinner(winner?: Player){
+    this.roundOver = true;
+    this.winner = winner;
+    this.winnerOutput.emit(winner?.color)
+  }
+
+  restart(){
+    this.setWinner(undefined)
+    this.newGame();
+  }
+
+  setDot(rowIndex: any, columnIndex: any){
+    this.ticTacToeService.dropDisc(columnIndex, rowIndex, this.currentPlayer.color)
     .pipe(
         tap(() =>{
+          this.getBoard();
         })
     ).subscribe();
   }

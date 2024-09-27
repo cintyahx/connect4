@@ -38,9 +38,10 @@ export class TicTacToeService {
       .pipe();
   }
    
-  dropDisc(column: number, row: number): Observable<any> {
+  dropDisc(column: number, row: number, color: string): Observable<any> {    
+
     return this.http
-      .post<any>(`${environment.backend}/TicTacToe/drop-disc`, { column, row })
+      .post<any>(`${environment.backend}/TicTacToe/drop-disc`, { column, row, color })
       .pipe();
   }
 }

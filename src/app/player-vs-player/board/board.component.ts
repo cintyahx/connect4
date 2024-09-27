@@ -89,7 +89,8 @@ currentColumn: number | null = 0;
       this.currentPlayer = {
         number: 1,
         color: 'red',
-        name: ''
+        name: '',
+        isComputerPlayer: false
       }
     }
     
@@ -102,12 +103,14 @@ currentColumn: number | null = 0;
       playerOne: {
         number: 1,
         name: sessionStorage.getItem('player1Name')!,
-        color: document.documentElement.style.getPropertyValue("--player-one-color")
+        color: document.documentElement.style.getPropertyValue("--player-one-color"),
+        isComputerPlayer: false
       },
       playerTwo: {
         number: 2,
         name: sessionStorage.getItem('player2Name')!,
-        color: document.documentElement.style.getPropertyValue("--player-two-color")
+        color: document.documentElement.style.getPropertyValue("--player-two-color"),
+        isComputerPlayer: false
       },
     };
 

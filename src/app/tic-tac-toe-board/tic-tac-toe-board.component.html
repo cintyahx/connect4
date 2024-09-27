@@ -12,6 +12,8 @@
                 *ngFor="let column of [0,1,2]" 
                 class="column column{{column}}">
             
+            <img *ngIf="board[row][column].color !== '' && board[row][column].color !== null" class="point-img point-img-{{column}}" src="assets/{{board[row][column].color}}.svg">
+            
         </button>
     </div>
 </div>
