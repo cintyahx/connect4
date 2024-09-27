@@ -1,7 +1,7 @@
 <div class="translate dropdown" style="float:right;">
     <button class="btn-translate">
         <span>{{'language' | translate}}</span>
-        <img src="assets/flags/usa.png">
+        <img src="assets/flags/{{this.flag}}.png">
     </button>
     <div class="dropdown-content">
         <a *ngFor="let enum of language | keyvalue" (click)="useLanguage(enum.value)" >{{getLanguageDescription(enum.value)}}</a>

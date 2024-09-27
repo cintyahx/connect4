@@ -8,11 +8,27 @@ import { Language, LanguageNativeLabel } from '../enum/language.enum';
   styleUrl: './language.component.scss'
 })
 export class LanguageComponent {
-
+  flag = "usa";
   language = Language;
+
   constructor(private translateService: TranslateService) { }
   
   useLanguage(language: string): void {
+
+    switch (language) {
+      case 'en':
+        this.flag = "usa";        
+        break;
+      case 'pt-br':
+        this.flag = "brazil";        
+        break;      
+      case 'es':
+        this.flag = "spain";        
+        break;
+      default:
+        this.flag = "usa";  
+    }
+
     this.translateService.use(language);
     this.translateService.resetLang(language);
   }
