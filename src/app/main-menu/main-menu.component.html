@@ -12,12 +12,15 @@
                 </svg>
             </div>
             <div class="main-center-field">        
-                <input type="text" placeholder="Player 2" id="player2Name" formControlName="player2Name" alt="name player 2">     
+                <input [disabled]="!this.isPvp" type="text" placeholder="Player 2" id="player2Name" formControlName="player2Name" alt="name player 2">     
                 <svg [(colorPicker)]="colorTwo" (colorPickerChange)="playerTwoChangeColor($event)" width="54px" height="59px" viewBox="0 0 54 59" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">  
                     <circle r="20" cx="30" cy="30" class="player-two" stroke="black" stroke-width="3"></circle>        
                 </svg>
             </div>
         </form>
+        <div class="button-select-pvp">
+            <button (click)="changePlayMode()" class="btn">{{this.isPvp ? ('pve' | translate) : ('pvp' | translate)}} </button>
+        </div>
         <div class="main-bottom">
             <button class="btn" type="submit" (click)="submit()">
                 <span>{{'play' | translate}}</span>

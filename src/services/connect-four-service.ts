@@ -21,24 +21,6 @@ export class ConnectFourService {
       .get<any>(`${environment.backend}/Connect4`)
       .pipe();
   }
-  
-  getCurrentPlayer(): Observable<any> {
-    return this.http
-      .get<any>(`${environment.backend}/Connect4/current-player`)
-      .pipe(shareReplay());
-  }
-   
-  getWinner(): Observable<any> {
-    return this.http
-      .get<any>(`${environment.backend}/Connect4/winner`)
-      .pipe();
-  }
-   
-  getIsOver(): Observable<any> {
-    return this.http
-      .get<any>(`${environment.backend}/Connect4/is-over`)
-      .pipe();
-  }
    
   dropDisc(column:number): Observable<any> {
     return this.http

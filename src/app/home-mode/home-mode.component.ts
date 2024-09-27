@@ -9,6 +9,6 @@ export class HomeModeComponent implements OnInit{
   
   ngOnInit(): void {
     document.body.setAttribute("class","main-menu-background");
+    sessionStorage.clear();
   }
-
 }

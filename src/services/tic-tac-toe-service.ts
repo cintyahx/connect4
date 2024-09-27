@@ -19,24 +19,6 @@ export class TicTacToeService {
       .get<any>(`${environment.backend}/TicTacToe`)
       .pipe();
   }
-  
-  getCurrentPlayer(): Observable<any> {
-    return this.http
-      .get<any>(`${environment.backend}/TicTacToe/current-player`)
-      .pipe(shareReplay());
-  }
-   
-  getWinner(): Observable<any> {
-    return this.http
-      .get<any>(`${environment.backend}/TicTacToe/winner`)
-      .pipe();
-  }
-   
-  getIsOver(): Observable<any> {
-    return this.http
-      .get<any>(`${environment.backend}/TicTacToe/is-over`)
-      .pipe();
-  }
    
   dropDisc(column: number, row: number, color: string): Observable<any> {    
 

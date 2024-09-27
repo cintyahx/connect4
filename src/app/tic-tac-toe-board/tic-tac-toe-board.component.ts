@@ -1,9 +1,8 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { tap } from 'rxjs';
 import { TicTacToeService } from 'src/services/tic-tac-toe-service';
 import { Player } from '../models/player.model';
 import { Players } from '../models/players.model';
-import { Disc } from '../models/disc.model';
 import { Board } from '../models/board.model';
 
 @Component({
@@ -52,6 +51,10 @@ export class TicTacToeBoardComponent implements OnInit{
   }
 
   newGame(){    
+    this.roundOver = false;
+    let session = sessionStorage.getItem('isPvp') ?? 'true';
+    let isPvp = JSON.parse(session.toLowerCase());
+
     this.players = {
       playerOne: {
         number: 1,
@@ -63,7 +66,7 @@ export class TicTacToeBoardComponent implements OnInit{
         number: 2,
         name: sessionStorage.getItem('player2Name')!,
         color: "o",
-        isComputerPlayer: false
+        isComputerPlayer: !isPvp
       },
     };
 
@@ -96,40 +99,6 @@ export class TicTacToeBoardComponent implements OnInit{
       this.winner = board.winner;
       this.setWinner(board.winner);
     }
-  }
-
-  getCurrentPlayer(){    
-    this.ticTacToeService.getCurrentPlayer()
-    .pipe(        
-        tap((result) =>{
-          this.currentPlayer = result.data;
-          this.calculateWin();
-        })
-      )
-      .subscribe();
-  }
-
-  calculateWin(){
-    this.ticTacToeService.getIsOver()
-    .pipe(
-      tap((result) => {
-        this.roundOver = result.data;
-        if(result.data){
-          this.getWinner();
-        }
-    })
-    )
-    .subscribe();
-  }
-
-  getWinner(){
-    this.ticTacToeService.getWinner()
-    .pipe(
-      tap((result) => {
-        this.setWinner(result.data)
-    })
-    )
-    .subscribe();
   }
 
   setWinner(winner?: Player){

@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { map, tap } from 'rxjs';
+import { Board } from 'src/app/models/board.model';
 import { Disc } from 'src/app/models/disc.model';
 import { Player } from 'src/app/models/player.model';
 import { Players } from 'src/app/models/players.model';
@@ -99,6 +100,9 @@ currentColumn: number | null = 0;
   }
 
   newGame(){    
+    let session = sessionStorage.getItem('isPvp') ?? 'true';
+    let isPvp = JSON.parse(session.toLowerCase());
+
     this.players = {
       playerOne: {
         number: 1,
@@ -110,7 +114,7 @@ currentColumn: number | null = 0;
         number: 2,
         name: sessionStorage.getItem('player2Name')!,
         color: document.documentElement.style.getPropertyValue("--player-two-color"),
-        isComputerPlayer: false
+        isComputerPlayer: !isPvp
       },
     };
 
@@ -132,24 +136,30 @@ currentColumn: number | null = 0;
     .subscribe();
   }
 
-  refreshBoard(element: Array<Disc>){
-    Array.from(element).forEach((disc) => {
+  refreshBoard(board: Board){
+    Array.from(board.discs).forEach((disc) => {
       this.board[disc.column][disc.row].color = disc.color
     });
-    this.getCurrentPlayer();
+    
+    this.currentPlayer = board.currentPlayer;
+
+    if(board.isOver){
+      this.winner = board.winner;
+      this.setWinner(board.winner);
+    }
   }
 
-  getCurrentPlayer(){    
-    this.connectFourService.getCurrentPlayer()
-    .pipe(        
-        tap((result) =>{
-          this.currentPlayer = result.data;
-          this.calculateWin();
-        })
-      )
-      .subscribe();
-  }
+  setWinner(winner?: Player){
+    this.roundOver = true;
+    this.winner = winner;
+    this.winnerOutput.emit(winner?.color)
+  } 
 
+  restart(){
+    this.setWinner(undefined)
+    this.newGame();
+  }
+  
   setDot(columnIndex:number){
     this.connectFourService.dropDisc(columnIndex)
     .pipe(
@@ -157,38 +167,5 @@ currentColumn: number | null = 0;
           this.getBoard();
         })
     ).subscribe();
-  }
-
-  restart(){
-    this.setWinner(undefined)
-    this.newGame();
-  }
-
-  setWinner(winner?: Player){
-    this.winner = winner;
-    this.winnerOutput.emit(winner?.color)
-  }  
-
-  getWinner(){
-    this.connectFourService.getWinner()
-    .pipe(
-      tap((result) => {
-        this.setWinner(result.data)
-    })
-    )
-    .subscribe();
-  }
-
-  calculateWin(){
-    this.connectFourService.getIsOver()
-    .pipe(
-      tap((result) => {
-        this.roundOver = result.data;
-        if(result.data){
-          this.getWinner();
-        }
-    })
-    )
-    .subscribe();
   }
 }

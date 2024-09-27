@@ -30,5 +30,8 @@
   "wins": "WINS",
   "play": "PLAY",
   "play-again": "PLAY AGAIN",
-  "return": "RETURN"
+  "return": "RETURN",
+  "pvp": "PLAYER VS PLAYER",
+  "pve": "PLAYER VS ENGINE",
+  "engine": "Engine"
 }

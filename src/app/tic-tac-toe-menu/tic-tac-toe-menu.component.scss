@@ -7,7 +7,7 @@
 
 .background-main{
     display: block;
-    height: 45rem;
+    height: 48rem;
     width: 30rem;
     background-color: var(--uranian-blue);
     border: 0.18rem solid var(--black);
@@ -16,7 +16,7 @@
 }
 
 .main-top{
-    margin: 4.5rem 0 4.5rem 0;
+    margin: 3rem 0 3rem 0;
     img{
         display: block;
         margin: auto;
@@ -38,6 +38,19 @@
     }
 }
 
+.button-select-pvp{
+    button{
+        display: block;
+        margin: auto;
+        background-color: var(--moonstone);
+        margin-bottom: 1.5rem;
+        text-align: start;
+        
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
 
 .main-bottom{
     margin-bottom: 4rem;
