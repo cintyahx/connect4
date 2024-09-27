@@ -1,28 +1,36 @@
 {
-    "connect-four": {
-      "language": "IDIOMA",
-      "rules": "REGRAS",
-      "game-rules": "REGRAS DO JOGO",
-      "objective": {
-        "tile": "OBJETIVO",      
-        "text": "Be the first player to connect 4 of the same colored discs in a row (either vertically, horizontally, or diagonally)."
-      },
-      "how-to-play": {
-        "title": "HOW TO PLAY",
-        "how-1": "Player 1 goes first in the first game.",
-        "how-2": "Players must alternate turns, and only one disc can be dropped in each turn.",
-        "how-3": "The game ends when there is a 4-in-a-row or a stalemate.",
-        "how-4": "The starter of the previous game goes second on the next game."
-      }, 
-      "menu": "MENU",
-      "restart": "REINICIAR",
-      "pause": "PAUSAR",
-      "continue": "CONTINUAR JOGO",
-      "quit": "SAIR",
-      "turn": "TURNO",
-      "player": "JOGADOR",
-      "wins": "GANHOU",
-      "play": "JOGAR",
-      "play-again": "JOGAR NOVAMENTE"
+  "connect-four": {
+    "objective": {
+      "tile": "OBJETIVO",      
+      "text": "Seja o primeiro jogados a fazer uma sequência de 4 discos da mesma cor (seja vertical, horizont, ou diagonal)."
+    },
+    "how-to-play": {
+      "title": "COMO JOGAR",
+      "how-1": "Um jogador aleatório é escolhido para fazer a primeira jogada.",
+      "how-2": "Jogadores jogam em turnos alternados, e apenas um disco pode ser colocado em cada turno.",
+      "how-3": "O jogo termina quando existir uma sequência de 4 discos ou não houver mais jogadas possíveis."
     }
-  }
+  },
+  "mode":{
+    "connect-four": "CONNECT 4",
+    "tic-tac-toe": "JOGO DA VELHA",
+    "select-mode": "Selecione o Modo"
+  }, 
+  "language": "IDIOMA",
+  "rules": "REGRAS",
+  "game-rules": "REGRAS DO JOGO",
+  "menu": "MENU",
+  "restart": "REINICIAR",
+  "pause": "PAUSAR",
+  "continue": "CONTINUAR JOGO",
+  "quit": "SAIR DO JOGO",
+  "turn": "TURNO",
+  "player": "JOGADOR",
+  "wins": "GANHOU",
+  "play": "JOGAR",
+  "play-again": "JOGAR NOVAMENTE",
+  "return": "RETORNAR",
+  "pvp": "PLAYER VS PLAYER",
+  "pve": "PLAYER VS COMPUTADOR",
+  "engine": "Computador"
+}

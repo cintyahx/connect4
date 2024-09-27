@@ -1,1 +1,36 @@
-{}
+{
+    "connect-four": {
+      "objective": {
+        "tile": "OBJECTIVE",      
+        "text": "Be the first player to connect 4 of the same colored discs in a row (either vertically, horizontally, or diagonally)."
+      },
+      "how-to-play": {
+        "title": "HOW TO PLAY",
+        "how-1": "A random Player is chosen to make the first move.",
+        "how-2": "Players must alternate turns, and only one disc can be dropped in each turn.",
+        "how-3": "The game ends when there is a 4-in-a-row or a stalemate."
+      }
+    },
+    "mode":{
+      "connect-four": "CONNECT 4",
+      "tic-tac-toe": "TIC TAC TOE",
+      "select-mode": "Select Mode"
+    }, 
+    "language": "LANGUAGE",
+    "rules": "RULES",
+    "game-rules": "GAME RULES",
+    "menu": "MENU",
+    "restart": "RESTART",
+    "pause": "PAUSE",
+    "continue": "CONTINUE GAME",
+    "quit": "QUIT GAME",
+    "turn": "TURN",
+    "player": "PLAYER",
+    "wins": "WINS",
+    "play": "PLAY",
+    "play-again": "PLAY AGAIN",
+    "return": "RETURN",
+    "pvp": "PLAYER VS PLAYER",
+    "pve": "PLAYER VS ENGINE",
+    "engine": "Engine"
+  }
