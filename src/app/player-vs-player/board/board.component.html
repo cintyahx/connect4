@@ -32,7 +32,7 @@
     <h3 class="current-turn-wrapper">{{'turn' | translate}}</h3>
 </div>
 <div *ngIf="roundOver" class="winner-container">
-    <h3 class="heading-xs">{{'player' | translate}} {{this.winner?.name}}</h3>
-    <h4 class="heading-l">{{'wins' | translate}}</h4>
+    <h3 *ngIf="this.winner" class="heading-xs">{{'player' | translate}} {{this.winner.name}}</h3>
+    <h4 class="heading-l">{{this.winner ? ('wins' | translate) : ('stalemate' | translate)}}</h4>
     <button (click)="restart()" class="btn-small">{{'play-again' | translate}}</button>
 </div>

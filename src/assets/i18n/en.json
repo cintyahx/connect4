@@ -27,6 +27,7 @@
   "turn": "TURN",
   "player": "PLAYER",
   "wins": "WINS",
+  "stalemate": "STALEMATE",
   "play": "PLAY",
   "play-again": "PLAY AGAIN",
   "return": "RETURN",

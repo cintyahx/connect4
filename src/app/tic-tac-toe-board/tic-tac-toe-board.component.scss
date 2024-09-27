@@ -78,7 +78,6 @@
     border: 0.18rem solid var(--black);
     box-shadow: 0rem 0.625rem 0rem var(--black);
     border-radius: 1.25rem;
-    width: 17.82rem;
     height: 10rem;
     position:absolute;
     bottom:0;
@@ -90,10 +89,13 @@
     align-items: center;
     transform: translateX(-50%);
     h3{
-        margin: 0;
+        margin: auto;
     }
     h4{
-        margin: 0;
+        margin: auto 2.5rem;
+    }
+    button{
+        margin: auto;        
     }
 }
 

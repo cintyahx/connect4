@@ -1,19 +1,13 @@
 <div class="field-container">
     <div 
     *ngFor="let row of [0,1,2]" 
-            class="row row{{row}}" >
-        
-        <!--<app-player-top-marker 
-            *ngIf="currentColumn === i" 
-            [player]="this.currentPlayer.number"
-            class="marker"></app-player-top-marker>-->
-            
+            class="row row{{row}}" >            
         <button (click)="setDot(row, column)" 
                 *ngFor="let column of [0,1,2]" 
-                class="column column{{column}}">
+                class="column column{{column}}"
+                [disabled]="board[row][column].color !== null">
             
             <img *ngIf="board[row][column].color !== '' && board[row][column].color !== null" class="point-img point-img-{{column}}" src="assets/{{board[row][column].color}}.svg">
-            
         </button>
     </div>
 </div>
@@ -24,9 +18,8 @@
     <h3 class="current-turn-wrapper">{{'turn' | translate}}</h3>
 </div>
 
-
 <div *ngIf="roundOver" class="winner-container">
-    <h3 class="heading-xs">{{'player' | translate}} {{this.winner?.name}}</h3>
-    <h4 class="heading-l">{{'wins' | translate}}</h4>
+    <h3 *ngIf="this.winner" class="heading-xs">{{'player' | translate}} {{this.winner.name}}</h3>
+    <h4 class="heading-l">{{this.winner ? ('wins' | translate) : ('stalemate' | translate)}}</h4>
     <button (click)="restart()" class="btn-small">{{'play-again' | translate}}</button>
 </div>

@@ -27,6 +27,7 @@
   "turn": "TURNO",
   "player": "JOGADOR",
   "wins": "GANHOU",
+  "stalemate": "EMPATE",
   "play": "JOGAR",
   "play-again": "JOGAR NOVAMENTE",
   "return": "RETORNAR",
