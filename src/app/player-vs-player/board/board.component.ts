@@ -151,7 +151,7 @@ currentColumn: number | null = 0;
   }
 
   setWinner(winner?: Player){
-    this.roundOver = true;
+    this.roundOver = winner !== undefined;
     this.winner = winner;
     this.winnerOutput.emit(winner?.color)
   } 
