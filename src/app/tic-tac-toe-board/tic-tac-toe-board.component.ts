@@ -39,7 +39,7 @@ export class TicTacToeBoardComponent implements OnInit{
 
   constructor(private ticTacToeService: TicTacToeService) { 
     this.currentPlayer = {
-      number: 1,
+      id: 1,
       color: 'x',
       name: '',
       isComputerPlayer: false
@@ -57,13 +57,13 @@ export class TicTacToeBoardComponent implements OnInit{
 
     this.players = {
       playerOne: {
-        number: 1,
+        id: 1,
         name: sessionStorage.getItem('player1Name')!,
         color: "x",
         isComputerPlayer: false
       },
       playerTwo: {
-        number: 2,
+        id: 2,
         name: sessionStorage.getItem('player2Name')!,
         color: "o",
         isComputerPlayer: !isPvp

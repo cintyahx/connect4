@@ -14,7 +14,7 @@
 
 <img class="layer-grid" src="assets/grid.svg" >
 <div [ngStyle]="roundOver ? {'opacity':'0'} : {'opacity':'1'}" class="current-turn">
-    <app-player-bottom-marker [player]=this.currentPlayer.number></app-player-bottom-marker>
+    <app-player-bottom-marker [player]=this.currentPlayer.id></app-player-bottom-marker>
     <h3 class="current-turn-wrapper">{{'turn' | translate}}</h3>
 </div>
 

@@ -173,6 +173,18 @@
     }
 }
 
+.current-turn1{
+    fill: var(--player-one-color)
+}
+
+.svg path{
+    fill: var(--player-one-color);
+}
+
+.dot-player2{
+    color: var(--player-two-color)
+}
+
 @media screen and (max-width:48rem){
     .marker{
         display: none;

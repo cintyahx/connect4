@@ -8,15 +8,19 @@
         
         <app-player-top-marker 
             *ngIf="currentColumn === i" 
-            [player]="this.currentPlayer.number"
+            [player]="this.currentPlayer.id"
             class="marker"></app-player-top-marker>
         
         <div *ngFor="let dot of [0,1,2,3,4,5]; let j = index" class="dot dot{{j}}">
             <!--Desktop dots-->
-            <img *ngIf="board[i][j].color !== null && board[i][j].color !== ''" 
-                 class="point-img point-img-{{j}}" 
-                 src="assets/counter-red-large.svg" 
-                 alt="{{board[i][j].color}}-dot">
+            <app-player-counter
+                *ngIf="board[i][j].color !== null && board[i][j].color !== '' && board[i][j].player == 1" 
+                class="point-img point-img-{{j}} current-turn{{board[i][j].player}}"
+            ></app-player-counter>
+            <app-player-counter
+                *ngIf="board[i][j].color !== null && board[i][j].color !== '' && board[i][j].player == 2" 
+                class="point-img point-img-{{j}} current-turn{{board[i][j].player}}"
+            ></app-player-counter>
         </div>
     </button>
 </div>
@@ -28,7 +32,7 @@
 <img class="layer-mobile white-layer" src="assets/board-layer-white-small.svg" alt="white-layer">
 
 <div [ngStyle]="roundOver ? {'opacity':'0'} : {'opacity':'1'}" class="current-turn">
-    <app-player-bottom-marker [player]=this.currentPlayer.number></app-player-bottom-marker>
+    <app-player-bottom-marker [(player)]="this.currentPlayer.id"></app-player-bottom-marker>
     <h3 class="current-turn-wrapper">{{'turn' | translate}}</h3>
 </div>
 <div *ngIf="roundOver" class="winner-container">

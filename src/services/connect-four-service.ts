@@ -4,7 +4,7 @@ import { Observable, shareReplay } from "rxjs";
 import { Disc } from "src/app/models/disc.model";
 import { Player } from "src/app/models/player.model";
 import { Players } from "src/app/models/players.model";
-import { environment } from "src/environments/environment";
+import { environment } from "src/constants/environment";
 
 @Injectable()
 export class ConnectFourService {

@@ -1,5 +1,5 @@
 export interface Player {
-    number: number;
+    id: number;
     name: string;
     color: string;
     isComputerPlayer: boolean

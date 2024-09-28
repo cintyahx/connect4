@@ -18,60 +18,60 @@ currentColumn: number | null = 0;
   board = 
   [
     [
-      {color: ""},
-      {color: ""},
-      {color: ""},
-      {color: ""},
-      {color: ""},
-      {color: ""}
+      {color: "", player: 0},
+      {color: "", player: 0},
+      {color: "", player: 0},
+      {color: "", player: 0},
+      {color: "", player: 0},
+      {color: "", player: 0}
     ],
     [
-      {color: ""},
-      {color: ""},
-      {color: ""},
-      {color: ""},
-      {color: ""},
-      {color: ""}
+      {color: "", player: 0},
+      {color: "", player: 0},
+      {color: "", player: 0},
+      {color: "", player: 0},
+      {color: "", player: 0},
+      {color: "", player: 0}
     ],
     [
-      {color: ""},
-      {color: ""},
-      {color: ""},
-      {color: ""},
-      {color: ""},
-      {color: ""}
+      {color: "", player: 0},
+      {color: "", player: 0},
+      {color: "", player: 0},
+      {color: "", player: 0},
+      {color: "", player: 0},
+      {color: "", player: 0}
     ],
     [
-      {color: ""},
-      {color: ""},
-      {color: ""},
-      {color: ""},
-      {color: ""},
-      {color: ""}
+      {color: "", player: 0},
+      {color: "", player: 0},
+      {color: "", player: 0},
+      {color: "", player: 0},
+      {color: "", player: 0},
+      {color: "", player: 0}
     ],
     [
-      {color: ""},
-      {color: ""},
-      {color: ""},
-      {color: ""},
-      {color: ""},
-      {color: ""}
+      {color: "", player: 0},
+      {color: "", player: 0},
+      {color: "", player: 0},
+      {color: "", player: 0},
+      {color: "", player: 0},
+      {color: "", player: 0}
     ],
     [
-      {color: ""},
-      {color: ""},
-      {color: ""},
-      {color: ""},
-      {color: ""},
-      {color: ""}
+      {color: "", player: 0},
+      {color: "", player: 0},
+      {color: "", player: 0},
+      {color: "", player: 0},
+      {color: "", player: 0},
+      {color: "", player: 0}
     ],
     [
-      {color: ""},
-      {color: ""},
-      {color: ""},
-      {color: ""},
-      {color: ""},
-      {color: ""}
+      {color: "", player: 0},
+      {color: "", player: 0},
+      {color: "", player: 0},
+      {color: "", player: 0},
+      {color: "", player: 0},
+      {color: "", player: 0}
     ],
   ]
 
@@ -88,7 +88,7 @@ currentColumn: number | null = 0;
   constructor(
     private connectFourService: ConnectFourService) { 
       this.currentPlayer = {
-        number: 1,
+        id: 0,
         color: 'red',
         name: '',
         isComputerPlayer: false
@@ -105,13 +105,13 @@ currentColumn: number | null = 0;
 
     this.players = {
       playerOne: {
-        number: 1,
+        id: 1,
         name: sessionStorage.getItem('player1Name')!,
         color: document.documentElement.style.getPropertyValue("--player-one-color"),
         isComputerPlayer: false
       },
       playerTwo: {
-        number: 2,
+        id: 2,
         name: sessionStorage.getItem('player2Name')!,
         color: document.documentElement.style.getPropertyValue("--player-two-color"),
         isComputerPlayer: !isPvp
@@ -139,6 +139,7 @@ currentColumn: number | null = 0;
   refreshBoard(board: Board){
     Array.from(board.discs).forEach((disc) => {
       this.board[disc.column][disc.row].color = disc.color
+      this.board[disc.column][disc.row].player = disc.player
     });
     
     this.currentPlayer = board.currentPlayer;

@@ -21,7 +21,9 @@ export class MainMenuComponent implements OnInit {
     private translate: TranslateService) { }
 
   ngOnInit(){
-      document.body.setAttribute("class","main-menu-background");
+    document.body.setAttribute("class","main-menu-background");
+    document.documentElement.style.setProperty('--player-one-color', '#FD6687');
+    document.documentElement.style.setProperty('--player-two-color', '#32CD32');
 
     this.gameForm = this.createNewGameForm();
   }  

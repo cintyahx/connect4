@@ -2,7 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable, shareReplay } from "rxjs";
 import { Players } from "src/app/models/players.model";
-import { environment } from "src/environments/environment";
+import { environment } from "src/constants/environment";
 
 @Injectable()
 export class TicTacToeService {
