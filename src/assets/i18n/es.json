@@ -1,37 +1,37 @@
 {
     "connect-four": {
       "objective": {
-        "tile": "OBJECTIVE",      
-        "text": "Be the first player to connect 4 of the same colored discs in a row (either vertically, horizontally, or diagonally)."
+        "tile": "OBJETIVO",      
+        "text": "Sé el primer jugador en hacer una secuencia de 4 discos del mismo color (ya sea vertical, horizontal o diagonal)."
       },
       "how-to-play": {
-        "title": "HOW TO PLAY",
-        "how-1": "A random Player is chosen to make the first move.",
-        "how-2": "Players must alternate turns, and only one disc can be dropped in each turn.",
-        "how-3": "The game ends when there is a 4-in-a-row or a stalemate."
+        "title": "CÓMO JUGAR",
+        "how-1": "Se elige un jugador al azar para hacer el primer movimiento.",
+        "how-2": "Los jugadores toman turnos alternos y solo se puede colocar un disco en cada turno.",
+        "how-3": "El juego termina cuando hay una secuencia de 4 discos o no hay más movimientos posibles."
       }
     },
     "mode":{
       "connect-four": "CONNECT 4",
-      "tic-tac-toe": "TIC TAC TOE",
-      "select-mode": "Select Mode"
+      "tic-tac-toe": "TRES EN RAYA",
+      "select-mode": "Seleccionar modo"
     }, 
-    "language": "LANGUAGE",
-    "rules": "RULES",
-    "game-rules": "GAME RULES",
-    "menu": "MENU",
-    "restart": "RESTART",
-    "pause": "PAUSE",
-    "continue": "CONTINUE GAME",
-    "quit": "QUIT GAME",
-    "turn": "TURN",
-    "player": "PLAYER",
-    "wins": "WINS",
-    "stalemate": "STALEMATE",
-    "play": "PLAY",
-    "play-again": "PLAY AGAIN",
-    "return": "RETURN",
+    "language": "IDIOMA",
+    "rules": "REGLAS",
+    "game-rules": "REGLAS DEL JUEGO",
+    "menu": "MENÚ",
+    "restart": "REINICIAR",
+    "pause": "PAUSA",
+    "continue": "CONTINUAR JUEGO",
+    "quit": "DEJAR EL JUEGO",
+    "turn": "TURNO",
+    "player": "JUGADOR",
+    "wins": "GANÓ",
+    "stalemate": "EMPATE",
+    "play": "JUGAR",
+    "play-again": "JUGAR DE NUEVO",
+    "return": "DEVOLVER",
     "pvp": "PLAYER VS PLAYER",
-    "pve": "PLAYER VS ENGINE",
-    "engine": "Engine"
+    "pve": "PLAYER VS COMPUTADORA",
+    "engine": "Computadora"
   }

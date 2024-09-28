@@ -2,7 +2,7 @@
   "connect-four": {
     "objective": {
       "tile": "OBJETIVO",      
-      "text": "Seja o primeiro jogados a fazer uma sequência de 4 discos da mesma cor (seja vertical, horizont, ou diagonal)."
+      "text": "Seja o primeiro jogador a fazer uma sequência de 4 discos da mesma cor (seja vertical, horizont, ou diagonal)."
     },
     "how-to-play": {
       "title": "COMO JOGAR",
